@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from "gatsby-image"
 
 const Card = styled.div`
   flex: 0 0 auto;
@@ -16,22 +17,53 @@ const Card = styled.div`
   }
 `
 
+const ImagePreview = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  .gatsby-image-wrapper {
+    width: 100%;
+  }
+`;
 
-const CatalogItem = () => {
+const Title = styled.h3`
+  font-size: 1rem;
+  line-height: 1.2;
+  margin: 0;
+`;
+
+const Price = styled.div`
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  span {
+  }
+`;
+
+
+const CatalogItem = ({product}) => {
+  const { 
+    title, 
+    variants: [firstVariant],
+    images: [firstImage], 
+  } = product
+
+  const { title: variantDescription } = firstVariant;
+  const { price } = firstVariant;
+  const fluid = firstImage?.localFile?.childImageSharp?.fluid;
+
   return (
     <Card>
       <div className="card__content">
-        <div className="item-image">
-          <div className="image-holder"></div>
-            <span className="product-choices">Más Opciones Disponibles</span>
-        </div>
+        <ImagePreview>
+          <Img fluid={fluid} />
+          <span className="product-choices">Más Opciones Disponibles</span>
+        </ImagePreview>
         <div className="content">
-          <h3>Product title</h3>  
-          <div className="product-info">
-            <p className="price">
-              <span><strong>L.1200.00</strong></span>
-            </p>
-          </div>
+        <Title>{title}, {variantDescription}</Title>
+        <Price>
+          <span>Lps. </span>{price}
+        </Price>
         </div> 
       </div>
     </Card>

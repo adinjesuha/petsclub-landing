@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 // Components
-import CatalogList from './catalogList'
+import CatalogListing from './catalogListing'
 
 const Section = styled.section`
   padding: 3rem 0;
@@ -82,7 +82,7 @@ const Catalog = () => {
             <p>I'm baby brooklyn taxidermy truffaut flexitarian keffiyeh, irony etsy whatever hot chicken humblebrag tattooed.</p>
           </div>
         </CatalogHeader>
-        <CatalogList />
+        <CatalogListing />
       </div>
     </Section>
 )

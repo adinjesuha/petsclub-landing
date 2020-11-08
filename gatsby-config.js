@@ -1,11 +1,22 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Pet's Club Honduras`,
+    description: `Catálogo de productos para tus mascotas.`,
+    author: `@adinjesuha`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        shopName: `petsclubhn`,
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
