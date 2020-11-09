@@ -1,15 +1,14 @@
 import React from "react"
 
 import SEO from "../components/seo"
-import Hero from "../components/hero"
+import Layout from '../components/layout'
 import Catalog from "../components/catalog"
 
 const IndexPage = () => (
-  <>
+  <Layout>
     <SEO title="Home" />
-    <Hero />
     <Catalog />
-  </>
+  </Layout>
 )
 
 export default IndexPage

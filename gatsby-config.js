@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Pet's Club Honduras`,
-    description: `Catálogo de productos para tus mascotas.`,
+    description: `Tienda Online especializada en productos para tus mascotas.`,
     author: `@adinjesuha`,
   },
   plugins: [
@@ -21,9 +21,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Roboto:400,500,700`
+          `Roboto\:400,500,700`
         ],
-        display: 'swap'
       }
     },
     {
@@ -47,11 +46,8 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/petsclub-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/petsclub-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
