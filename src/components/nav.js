@@ -3,21 +3,28 @@ import { Link } from 'gatsby'
 import Img from "gatsby-image"
 import styled from 'styled-components'
 
+import { device } from '../utils/breakpoints'
+
 const NavWrapper = styled.nav`
   width: 100%;
-  padding: 1rem 0;
-  margin-bottom: -92px;
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+  margin-bottom: .75rem;
+  position: relative;
+  z-index: 2;
   a{
     display: inline-block;
-    width: 120px;
+    width: 80px;
     .gatsby-image-wrapper{
       width: 100%;
     }
-    span{
-      font-size: 0;
-      color: #fff;
-      width: 0;
-      height: 0;
+  }
+  @media ${device.tablet}{
+    padding: 1rem 0;
+    text-align: left;
+    margin-bottom: -92px;
+    a{
+      width: 120px;
     }
   }
 `

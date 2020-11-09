@@ -3,9 +3,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import styled from 'styled-components'
 
+import { Container } from './globals'
 import Hero from "./hero"
 import Nav from "./nav"
-import { Container } from './globals'
 
 const HeaderWrap = styled.header`
   background: #2a2725;

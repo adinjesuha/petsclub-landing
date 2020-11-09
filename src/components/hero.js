@@ -3,42 +3,58 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
 
-import NewsLetterForm from "./newsletterForm"
 import { FlexContainer } from "./globals"
+import { device } from '../utils/breakpoints'
+import NewsLetterForm from "./newsletterForm"
 
 const HeroContent = styled.div`
-  flex: 0 0 50%;
-  width: 50%;
+  flex: 0 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index:2;
   .copy{
     color: #fff;
-    padding-right: 2.5rem;
-    h1{
-      font-size: 3rem;
-    }
+    text-align: center;
     p{
-      font-size: 1.8rem;
+      font-size: 1.2rem;
     }
   }
   .newsletter-form{
-    margin-top: 3rem;
     span{
       color: #fff;
       font-size: .9rem;
     }
   }
+  @media ${device.laptop}{
+    flex: 0 0 50%;
+    width: 50%;
+    .copy{
+      padding-right: 2.5rem;
+      h1{
+        font-size: 3rem;
+      }
+      p{
+        font-size: 1.8rem;
+      }
+    }
+    .newsletter-form{
+      margin-top: 3rem;
+    }
+  }
 `
 
 const HeroImage = styled.div`
-  width: 50%;
-  max-width: 520px;
+  width: 100%;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: -10%;
+  right: -20%;
   .gatsby-image-wrapper{
-    width: 100%;
+    width: 120%;
+  }
+  @media ${device.laptop}{
+    max-width: 520px;
   }
 `
 

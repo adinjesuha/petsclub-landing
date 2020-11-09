@@ -28,7 +28,11 @@ export const FlexContainer = styled.div`
   position: relative;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  @media ${device.laptop}{
+    flex-direction: row;
+  }
   ${props => props.spaceBetween && css`
     justify-content: space-between;
   `}
