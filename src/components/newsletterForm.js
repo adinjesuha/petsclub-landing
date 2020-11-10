@@ -92,7 +92,9 @@ const Form = styled.form`
     transition: background-color .3s,color .3s,border-color .3s;
   }
   @media ${device.laptop} {
-    flex-direction: row;
+    .form__input--group{
+      flex-direction: row;
+    }
     .form__input{
       margin: 0;
       max-width: 360px;

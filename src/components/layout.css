@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'TrumpGothicEastW01';
+  src: url('../../static/fonts/TrumpGothicEastW01-Bold.woff2') format('woff2'),
+      url('../../static/fonts/TrumpGothicEastW01-Bold.woff') format('woff'),
+      url('../../static/fonts/TrumpGothicEastW01-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -80,7 +90,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'TrumpGothicEastW01', 'Roboto', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;

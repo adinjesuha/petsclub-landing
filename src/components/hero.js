@@ -17,6 +17,11 @@ const HeroContent = styled.div`
   .copy{
     color: #fff;
     text-align: center;
+    h1{
+      font-size: 3.5rem;
+      line-height: 3rem;
+      text-transform: uppercase;
+    }
     p{
       font-size: 1.2rem;
     }
@@ -27,17 +32,25 @@ const HeroContent = styled.div`
       font-size: .9rem;
     }
   }
+  @media ${device.tablet}{
+    max-width: 520px;
+    padding-top: 12.5rem;
+    .copy{
+      h1{
+        font-size: 4.5rem;
+      }
+      p{
+        font-size: 2rem;
+      }
+    }
+  }
   @media ${device.laptop}{
     flex: 0 0 50%;
     width: 50%;
+    justify-content: flex-start;
     .copy{
       padding-right: 2.5rem;
-      h1{
-        font-size: 3rem;
-      }
-      p{
-        font-size: 1.8rem;
-      }
+      text-align: left;
     }
     .newsletter-form{
       margin-top: 3rem;
@@ -54,6 +67,8 @@ const HeroImage = styled.div`
     width: 120%;
   }
   @media ${device.laptop}{
+    top: 0;
+    right: 0;
     max-width: 520px;
   }
 `

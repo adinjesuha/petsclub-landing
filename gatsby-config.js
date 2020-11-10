@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Pet's Club Store`,
+    title: `Pet's Club`,
     description: `Tienda Online especializada en productos para tus mascotas.`,
     author: `@adinjesuha`,
   },
