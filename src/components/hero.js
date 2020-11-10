@@ -10,23 +10,30 @@ import NewsLetterForm from "./newsletterForm"
 const HeroContent = styled.div`
   flex: 0 0 auto;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100%;
   z-index:2;
   .copy{
     color: #fff;
     text-align: center;
+    padding-top: 5rem;
     h1{
       font-size: 3.5rem;
-      line-height: 3rem;
+      line-height: 3.5rem;
       text-transform: uppercase;
+    }
+    .eyebrow{
+      font-size: .9375rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
     }
     p{
       font-size: 1.2rem;
     }
   }
   .newsletter-form{
+    margin-top: 60px;
     span{
       color: #fff;
       font-size: .9rem;
@@ -61,8 +68,8 @@ const HeroContent = styled.div`
 const HeroImage = styled.div`
   width: 100%;
   position: absolute;
-  top: -10%;
-  right: -20%;
+  top: 0;
+  right: 0;
   .gatsby-image-wrapper{
     width: 120%;
   }
@@ -89,6 +96,7 @@ const Hero = ({siteTitle, description}) => {
     <FlexContainer>
       <HeroContent>
         <div className="copy">
+          <h2 className="eyebrow">online store</h2>
           <h1>{siteTitle}</h1>
           <p>{description}</p>
         </div>
