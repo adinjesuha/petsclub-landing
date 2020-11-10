@@ -15,7 +15,7 @@ const HeroContent = styled.div`
   .copy{
     color: #fff;
     text-align: center;
-    padding-top: 5rem;
+    padding-top: 2rem;
     h1{
       font-size: 3.5rem;
       line-height: 3.5rem;
