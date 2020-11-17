@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 import { FlexContainer } from "./globals"
 import { device } from '../utils/breakpoints'
-import NewsLetterForm from "./newsletterForm"
 
 const HeroContent = styled.div`
   flex: 0 0 auto;
@@ -81,32 +80,13 @@ const HeroImage = styled.div`
 `
 
 const Hero = ({siteTitle, description}) => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroImage: file(relativePath: { eq: "hero-image.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      },
-    }
-  `)
   return(
     <FlexContainer>
       <HeroContent>
-        <div className="copy">
-          <h2 className="eyebrow">online store</h2>
-          <h1>{siteTitle}</h1>
-          <p>{description}</p>
-        </div>
-        <div className="newsletter-form">
-          <NewsLetterForm />
-          <span>Suscribete a nuestro <strong>Newsletter</strong> para recibe noticias y promociones especiales</span>
-        </div>
+        
       </HeroContent>
       <HeroImage>
-        <Img fluid={data.heroImage.childImageSharp.fluid} />
+        
       </HeroImage>
     </FlexContainer>
   )

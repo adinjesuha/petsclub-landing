@@ -11,8 +11,8 @@ const Form = styled.form`
   }
   .form__input{
     display: block;
-    background-color: transparent;
-    color: rgba(255, 255, 255, 0.5);
+    background-color: #fff;
+    color: #ddd;
     font-size: 1rem;
     line-height: 2rem;
     letter-spacing: .2px;
@@ -27,15 +27,18 @@ const Form = styled.form`
       padding: 1.325rem 1rem .175rem;
       width: 100%;
       border: none;
-      background: transparent;
+      background: #fff;
       background-color: transparent;
       outline: none;
       z-index: 1;
-      color: #fff;
+      color: #000;
       position: relative;
+      &:-webkit-autofill {
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px;
+      }
     }
     &--border{
-      border: 1px solid #fff;
+      border: 1px solid #ddd;
       border-radius: 4px;
       position: absolute;
       left: 0;
@@ -141,16 +144,18 @@ const NewsLetterForm = () => {
       <div className="form__input--group">
         <label className="form__input">
           <input 
-            className={`form__input--el ${email.length ? 'has-value' : ''}`}
+            type="email"
             name="email" 
             value={email}
+            autoComplete="off"
+            className={`form__input--el ${email.length ? 'has-value' : ''}`}
             onChange={(e) => setEmail(e.target.value)}
           />
           <div className="form__input--border"/>
           <div className="form__label">Ingresa tu correo</div>
         </label>
         <div className="btn__wrap">
-          <button className="btn btn--submit">Suscribirse</button>
+          <button className="btn btn--submit">Suscribirte</button>
         </div>
       </div>
     </Form>
