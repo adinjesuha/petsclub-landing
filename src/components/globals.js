@@ -28,10 +28,10 @@ export const FlexContainer = styled.div`
   position: relative;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   align-items: center;
   @media ${device.tablet}{
-    flex-direction: row;
+    flex-flow: row wrap;
   }
   ${props => props.spaceBetween && css`
     justify-content: space-between;

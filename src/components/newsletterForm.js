@@ -85,12 +85,10 @@ const Form = styled.form`
     display: inline-block;
     background-color: #f53e5b;
     border: 2px solid transparent;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: 2px;
     text-decoration: none;
     text-align: center;
-    text-transform: uppercase;
     padding: 16px 0 12px;
     width: 100%;
     transition: background-color .3s,color .3s,border-color .3s;
@@ -157,7 +155,7 @@ const NewsLetterForm = () => {
           <div className="form__label">Ingresa tu correo</div>
         </label>
         <div className="btn__wrap">
-          <button className="btn btn--submit">Suscribirte</button>
+          <button className="btn btn--submit">Suscribete ya!</button>
         </div>
       </div>
     </Form>

@@ -181,12 +181,12 @@ const Header = () => {
               <Logo>
                 <img src={require('../images/logo.svg')} width="100%"/>
               </Logo>
-              <h2>I heard ther's a pet shop to be launched pretty soon...</h2>
+              <h2>Escuché que hay una pet shop que se abrirá muy pronto ...</h2>
             </HeadLine>
             <FormWrap>
-              <h4>get 20% off at grand openning</h4>
+              <h4>Obten un 20% de descuento en la gran apertura</h4>
               <NewsLetterForm />
-              <p>Once you've subscribed you get an email with a <strong>promocode</strong> on your first purchase of any product in Pets Club</p>
+              <p>Una vez que te has suscrito, recibirá un email con un <strong>promocode</strong> para tu primera compra en <strong>PETS CLUB</strong>.</p>
             </FormWrap>
           </Content>
           <ImageWrap>

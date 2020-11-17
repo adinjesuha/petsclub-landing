@@ -4,19 +4,12 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Pet's Club`,
+    title: `PETS CLUB`,
     description: `Tienda especializada en productos para tus mascotas.`,
     author: `@adinjesuha`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-shopify`,
-      options: {
-        shopName: `petsclubhn`,
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-      },
-    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
