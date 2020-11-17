@@ -21,6 +21,7 @@ const Form = styled.form`
     cursor: text;
     position: relative;
     transition: border-color .3s,margin-bottom .3s;
+    border-radius: 4px;
     &--el{
       font-size: 0.925rem;
       line-height: 1.5rem;
@@ -100,7 +101,8 @@ const Form = styled.form`
     }
     .form__input{
       margin: 0;
-      max-width: 360px;
+      max-width: auto;
+      border-radius: 4px 0 0 4px;
       &--el{
         font-size: 1.125rem;
         line-height: 2rem;
@@ -123,10 +125,10 @@ const Form = styled.form`
     }
     .btn__wrap{
       border-radius: 0 4px 4px 0;
+      width: 240px;
     }
     .btn--submit{
       padding: 24px 0 20px;
-      width: 160px;
     }
   }
 `

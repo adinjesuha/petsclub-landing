@@ -9,13 +9,13 @@ export const Container = styled.div`
   height: 100%;
   @media ${device.tablet}{
     padding: 0 2rem;
-    max-width: 764px;
+    max-width: 990px;
   }
   @media ${device.laptop}{
-    max-width: 960px; 
+    max-width: 1200px; 
   }
   @media ${device.laptopL}{
-    max-width: 1250px; 
+    max-width: 1350px; 
   }
   ${props => props.fluid && css`
     padding: 0 !important;
@@ -30,7 +30,7 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media ${device.laptop}{
+  @media ${device.tablet}{
     flex-direction: row;
   }
   ${props => props.spaceBetween && css`
