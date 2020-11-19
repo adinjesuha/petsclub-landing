@@ -11,6 +11,7 @@ import NewsLetterForm from "./newsletterForm"
 const Hero = styled.header`
   width: 100vw;
   height: 100vh;
+  min-height: 600px;
   overflow: hidden;
   position: relative;
 `
@@ -106,15 +107,10 @@ const FormWrap = styled.div`
   @media ${device.laptop}{
     margin-top: 6rem;
     h4{
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
     p{
       font-size: 1rem;
-    }
-  }
-  @media ${device.laptopL}{
-    p{
-      font-size: 1.2rem;
     }
   }
 `
@@ -184,7 +180,7 @@ const Header = () => {
               <h2>Escuché que hay una pet shop que se abrirá muy pronto ...</h2>
             </HeadLine>
             <FormWrap>
-              <h4>Obten un 20% de descuento en la gran apertura</h4>
+              <h4>Obten un 20% de descuento en la apertura</h4>
               <NewsLetterForm />
               <p>Una vez que te has suscrito, recibirá un email con un <strong>promocode</strong> para tu primera compra en <strong>PETS CLUB</strong>.</p>
             </FormWrap>

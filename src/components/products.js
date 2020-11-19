@@ -10,14 +10,15 @@ const ProductBox = styled.div`
   background-color: ${props => props.bgColor};
   width: 100%;
   height: 420px;
+  order: ${props => props.order};
   .gatsby-image-wrapper{
     width: 100%;
     height: 100%;
   }
   ${props => props.description && css`
-    padding: 2rem;
+    padding: 0 2rem;
     order: 4;
-    height: 380px;
+    height: 464px;
     @media ${device.tablet}{
       width: 100%;
       flex: 0 1 100%;
@@ -43,7 +44,35 @@ const ProductBox = styled.div`
     p{
       font-size: 1.2rem;
       color: rgba(39,43,55, .5);
-      margin: 0;
+    }
+    a{
+      color: #52555f;
+      font-weight: 500;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 300ms ease-in-out;
+      .arrow-btn{
+        display: inline-block;
+        background: url(${require('../images/arrow-next.svg')});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 24px 12px;
+        width: 24px;
+        height: 12px;
+        margin: 0 auto;
+        transition: all 300ms ease-in-out;
+      }
+      &:hover{
+        color: #f53e5b;
+        .arrow-btn{
+          background: url(${require('../images/arrow-next-hover.svg')});
+          background-position: center center;
+          background-repeat: no-repeat;
+          transform: translateX(10px);
+          background-size: 24px 12px;
+        }
+      }
     }
   }
   @media ${device.tablet}{
@@ -68,10 +97,10 @@ const ProductBox = styled.div`
 const Products = () => {
   const data = useStaticQuery(graphql`
     query {
-       food: file(relativePath: { eq: "food.webp" }) {
+       food: file(relativePath: { eq: "food.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid_withWebp
+          fluid(maxWidth: 720, quality: 100) {
+            ...GatsbyImageSharpFluid
           }
         }
       },
@@ -84,7 +113,7 @@ const Products = () => {
       },
        food3: file(relativePath: { eq: "food-3.webp" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 720, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -96,18 +125,21 @@ const Products = () => {
       <FlexContainer>
         <ProductBox bgColor="#F6F6F6" description>
           <div className="product-description">
-            <span>100% NATURE 0% CHEMISTRY</span>
+            <span>CALIDAD PARA TUS PELUDOS</span>
             <h3>FROM THEIR POINT OF VIEW</h3>
             <p>Natural pet food for cats and dogs that respects their nature</p>
+            <a href="#">
+            <span className="arrow-btn" /> Mira nuestro catálogo de productos
+            </a>
           </div>
         </ProductBox>
-        <ProductBox bgColor="#FFE8B9">
+        <ProductBox bgColor="#FFE8B9" order="1">
           <Img fluid={data.food3.childImageSharp.fluid}/>
         </ProductBox>
-        <ProductBox bgColor="#D0E9EE">
+        <ProductBox bgColor="#D0E9EE" order="2">
           <Img fluid={data.food2.childImageSharp.fluid}/>
         </ProductBox>
-        <ProductBox bgColor="#D1D3FA">
+        <ProductBox bgColor="#B8F5F0" order="3">
           <Img fluid={data.food.childImageSharp.fluid}/>
         </ProductBox>
       </FlexContainer>
