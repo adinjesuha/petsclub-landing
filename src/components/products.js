@@ -18,10 +18,11 @@ const ProductBox = styled.div`
   ${props => props.description && css`
     padding: 0 2rem;
     order: 4;
-    height: 464px;
+    height: 320px;
     @media ${device.tablet}{
       width: 100%;
       flex: 0 1 100%;
+      height: 464px;
     }
   `}
   .product-description{
@@ -33,17 +34,19 @@ const ProductBox = styled.div`
     justify-content: center;
     flex-direction: column;
     span{
+      font-size: 1rem;
       display: inline-block;
       color: rgba(39,43,55, .5);
       padding-bottom: .8rem;
     }
-    h3{
-      font-size: 1.6rem;
-      margin-bottom: 2rem;
+    h2{
+      font-size: 1.2rem;
+      text-transform: uppercase;
     }
     p{
       font-size: 1.2rem;
       color: rgba(39,43,55, .5);
+      margin:0;
     }
     a{
       color: #52555f;
@@ -72,6 +75,14 @@ const ProductBox = styled.div`
           transform: translateX(10px);
           background-size: 24px 12px;
         }
+      }
+    }
+    @media ${device.tablet}{
+      span{
+        font-size: 1.2rem;
+      }
+      h2{
+        font-size: 1.6rem;
       }
     }
   }
@@ -104,14 +115,14 @@ const Products = () => {
           }
         }
       },
-       food2: file(relativePath: { eq: "food-2.webp" }) {
+       food2: file(relativePath: { eq: "farmacy.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 720, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
       },
-       food3: file(relativePath: { eq: "food-3.webp" }) {
+       food3: file(relativePath: { eq: "cosmetics.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 720, quality: 100) {
             ...GatsbyImageSharpFluid_withWebp
@@ -126,11 +137,8 @@ const Products = () => {
         <ProductBox bgColor="#F6F6F6" description>
           <div className="product-description">
             <span>CALIDAD PARA TUS PELUDOS</span>
-            <h3>FROM THEIR POINT OF VIEW</h3>
+            <h2>FROM THEIR POINT OF VIEW</h2>
             <p>Natural pet food for cats and dogs that respects their nature</p>
-            <a href="#">
-            <span className="arrow-btn" /> Mira nuestro catálogo de productos
-            </a>
           </div>
         </ProductBox>
         <ProductBox bgColor="#FFE8B9" order="1">

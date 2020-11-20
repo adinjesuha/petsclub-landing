@@ -22,6 +22,10 @@ export const Container = styled.div`
     margin: 0 !important;
     max-width: 100% !important;
   `}
+  ${props => props.stretch && css`
+    max-width: 620px !important;
+    margin: auto !important;
+  `}
 `
 
 export const FlexContainer = styled.div`
