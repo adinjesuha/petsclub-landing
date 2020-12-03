@@ -1,42 +1,67 @@
 import styled, { css } from 'styled-components'
 import { device } from '../utils/breakpoints'
 
-export const Container = styled.div`
+export const Container = styled.section`
   flex-grow: 1;
   margin: 0 auto;
   padding: 0 1rem;
-  width: auto;
+  position: relative;
   height: 100%;
-  @media ${device.tablet}{
-    padding: 0 2rem;
-    max-width: 990px;
-  }
+  width: auto;
   @media ${device.laptop}{
-    max-width: 1200px; 
+    max-width: 1280px;
+    padding: 0 2rem;
   }
   @media ${device.laptopL}{
-    max-width: 1350px; 
+    max-width: 1380px;
+    padding: 0 3rem;
   }
   ${props => props.fluid && css`
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
   `}
-  ${props => props.stretch && css`
-    max-width: 620px !important;
-    margin: auto !important;
+  ${props => props.fluidResponsive && css`
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    @media ${device.mobileL}{
+      margin: 0 auto;
+      padding: 0 0.5rem;
+    }
+    @media ${device.laptop}{  
+      max-width: 1280px;
+      padding: 0 1.5rem;
+    }
+    @media ${device.laptopL}{
+      max-width: 1380px;
+      padding: 0 2.5rem;
+    }
+  `}
+  ${props => props.marginTop && css`
+    margin-top: 10px !important;
+    @media ${device.laptop}{
+      margin-top: 20px !important;
+    }
+  `}
+  ${props => props.paddingBottom && css`
+    padding-bottom: 2.5rem !important;
+  `}
+  ${props => props.borderBottom && css`
+    &:after{
+      content: "";
+      display: block;
+      border-bottom: 1px solid #ddd;
+      width: 100%;
+      margin-top: 2.5rem;
+    }
   `}
 `
 
 export const FlexContainer = styled.div`
   position: relative;
-  height: 100%;
   display: flex;
-  flex-flow: column nowrap;
   align-items: center;
-  @media ${device.tablet}{
-    flex-flow: row wrap;
-  }
   ${props => props.spaceBetween && css`
     justify-content: space-between;
   `}
@@ -48,6 +73,14 @@ export const FlexContainer = styled.div`
   `}
   ${props => props.noHeight && css`
     height: 0;
+  `}
+  ${props => props.flexWrap && css`
+    flex-wrap: wrap;
+  `}
+  ${props => props.isRow && css`
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    margin-top: 1rem;
   `}
 `
 

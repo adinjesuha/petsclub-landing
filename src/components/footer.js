@@ -1,8 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { device } from '../utils/breakpoints'
 import { Container, FlexContainer } from './globals'
+import Logo from './logo'
 
 const FooterContainer = styled.footer`
   padding: 1rem 0;
@@ -45,11 +46,8 @@ const FooterItem = styled.div`
   }
 `
 
-const Logo = styled.div`
+const LogoContainer = styled.div`
   width: 100px;
-  img{
-    margin: 0;
-  }
 `
 
 const ContactChannels = styled.div`
@@ -114,9 +112,9 @@ const Footer = () => {
             © {new Date().getFullYear()}, Pet’s Club Honduras
           </FooterItem>
           <FooterItem>
-            <Logo>
-              <img src={require('../images/logo.svg')} width="100%"/>
-            </Logo>
+            <LogoContainer>
+              <Logo />
+            </LogoContainer>
           </FooterItem>
           <FooterItem>
             <ContactChannels>

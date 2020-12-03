@@ -7,31 +7,11 @@ import { device } from '../utils/breakpoints'
 import { Container } from './globals'
 
 const BrandSection = styled.section`
-  padding-top: 6rem;
-`
-
-const HeadLine = styled.div`
-  text-align: center;
-  max-width: 430px;
-  margin: auto;
-  span{
-    font-size: 1rem;
-    display: inline-block;
-    color: rgba(39,43,55, .5);
-    padding-bottom: .8rem;
-  }
-  h2{
-    font-size: 1.2rem;
+  margin-top: 3rem;
+  .header{
+    font-size: 1.5rem;
+    font-weight: normal;
     text-transform: uppercase;
-    margin: 0;
-  }
-  @media ${device.tablet}{
-    span{
-      font-size: 1.2rem;
-    }
-    h2{
-      font-size: 1.6rem;
-    }
   }
 `
 
@@ -64,50 +44,6 @@ const Brand = styled.div`
   }
 `
 
-const LinkButton = styled.a`
-  background-color: #f53e5b;
-  color: #fff;
-  display: inline-block;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  padding: 12px 0;
-  width: 100%;
-  transition: background-color .3s,color .3s,border-color .3s;
-  margin: 0 auto;
-  .arrow-btn{
-    display: inline-block;
-    background: url(${require('../images/arrow-next.svg')});
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 24px 12px;
-    width: 24px;
-    height: 12px;
-    margin: 0 auto;
-    transition: all 300ms ease-in-out;
-    margin-left: 4px;
-  }
-  &:hover{
-    background-color: #dc3550;
-    .arrow-btn{
-      transform: translateX(8px);
-    }
-  }
-  @media ${device.tablet}{
-    display: block;
-    padding: 18px 0;
-    width: 240px;
-    .arrow-btn{
-      background-size: 28px 14px;
-      width: 28px;
-      height: 14px;
-    }
-  }
-`
-
 const Brands = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -128,12 +64,9 @@ const Brands = () => {
     }
   `)
   return(
-    <BrandSection>
-      <Container>
-        <HeadLine>
-          <span>12+ MARCAS Y SUMANDO</span>
-          <h2>Agregando nuevas marcas a nuestro catálogo todos los meses.</h2>
-        </HeadLine>
+    <Container borderBottom>
+      <BrandSection>
+        <h3 className="header">12+ Marcas Y Sumando</h3>
         <BrandsContainer>
           {data.allFile.edges.map(image => (
             <Brand>
@@ -141,12 +74,8 @@ const Brands = () => {
             </Brand>
           ))}
         </BrandsContainer>
-        <LinkButton href="#">
-          Ver Catálogo
-          <span className="arrow-btn"/>
-        </LinkButton>
-      </Container>
-    </BrandSection>
+      </BrandSection>
+    </Container>
   )
 }
 

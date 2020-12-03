@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
         description={data.site.siteMetadata?.description || `Description`}
       />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

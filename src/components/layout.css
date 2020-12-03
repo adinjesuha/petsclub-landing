@@ -8,7 +8,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2a2626;
+  color: #222649;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -344,6 +344,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
+  list-style: none;
 }
 ol {
   margin-left: 1.45rem;

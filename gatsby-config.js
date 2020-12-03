@@ -4,12 +4,27 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `PETS CLUB`,
+    title: `Pet's Club`,
     description: `Tienda especializada en productos para tus mascotas.`,
     author: `@adinjesuha`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-source-takeshape',
+      options: {
+        apiKey: process.env.TAKESHAPE_TOKEN,
+        projectId: process.env.TAKESHAPE_PROJECT,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries")
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
