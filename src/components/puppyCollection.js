@@ -51,7 +51,7 @@ const PuppyCollection = () => {
 
 
   return (
-    <Container marginTop>
+    <Container borderBottom paddingBottom marginTop>
       <PuppySection>
         <h3 className="header">Exclusivo para Cachorros</h3>
         <CustomSlider>
