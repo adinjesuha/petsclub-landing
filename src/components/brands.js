@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { device } from '../utils/breakpoints'
 import { Container } from './globals'
 
-const BrandSection = styled.section`
+const BrandSection = styled.div`
   margin-top: 3rem;
   .header{
     font-size: 1.5rem;

@@ -6,7 +6,8 @@ import { Container, FlexContainer } from './globals'
 import Logo from './logo'
 
 const FooterContainer = styled.footer`
-  padding: 1rem 0;
+  padding: 2rem 0;
+  background-color: #222649;
   @media ${device.tablet}{
     padding: 3rem 0;
   }
@@ -18,6 +19,7 @@ const FooterItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
   &:first-child{
     order: 2;
     margin-bottom: 2rem;
@@ -42,6 +44,7 @@ const FooterItem = styled.div`
     }
     &:last-child{
       order: 3;
+      
     }
   }
 `
@@ -55,12 +58,18 @@ const ContactChannels = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  .mail{
+
+  border-top: 1px solid #353a61;
+  padding-top: 1rem;
+
+  span{
     color: #f53e5b;
   }
   @media ${device.tablet}{
     justify-content: flex-end;
-    .mail{
+    border-top: 0px none transparent;
+    padding-top: 0rem;
+    span{
       margin-right: .8rem;
     }
   }
@@ -78,6 +87,19 @@ const Social = styled.div`
     height: 2.8rem;
     width: 2.8rem;
     transition: all 300ms ease-in-out;
+    &--mail{
+      background-image: url(${require('../images/message.svg')});
+      background-size: 20px auto;
+      background-position: 10px;
+      background-repeat: no-repeat;
+      margin-right: .8rem;
+      &:hover{
+        background-image: url(${require('../images/message-white.svg')});
+        background-size: 20px auto;
+        background-position: 10px;
+        background-repeat: no-repeat;
+      }
+    }
     &--fb{
       background-image: url(${require('../images/fb.svg')});
       background-size: 20px auto;
@@ -89,13 +111,19 @@ const Social = styled.div`
         background-size: 20px auto;
         background-position: 10px;
         background-repeat: no-repeat;
-    }
+      }
     }
     &--insta{
       background-image: url(${require('../images/instagram.svg')});
       background-size: 30px auto;
       background-position: 6px;
       background-repeat: no-repeat;
+      &:hover{
+        background-image: url(${require('../images/instagram-white.svg')});
+        background-size: 30px auto;
+        background-position: 6px;
+        background-repeat: no-repeat;
+      }
     }
     &:hover{
       background-color: #f53e5b;
@@ -107,19 +135,20 @@ const Footer = () => {
   return (
     <FooterContainer>
       <Container>
-        <FlexContainer spaceBetween>
+        <FlexContainer spaceBetween flexWrap>
           <FooterItem>
             © {new Date().getFullYear()}, Pet’s Club Honduras
           </FooterItem>
           <FooterItem>
             <LogoContainer>
-              <Logo />
+              <Logo white/>
             </LogoContainer>
           </FooterItem>
           <FooterItem>
             <ContactChannels>
-                <a href="mailto:ventas@petsclubhn.com" target="_blank" rel="noopener noreferrer" className="mail">Contáctanos</a>
+              <span>Contáctanos</span>
               <Social>
+                <a href="mailto:ventas@petsclubhn.com" target="_blank" rel="noopener noreferrer" className="icon icon--mail">Correo</a>
                 <a href="https://www.facebook.com/petsclubHonduras/" target="_blank" rel="noopener noreferrer" className="icon icon--fb">facebook</a> 
                 <a href="https://www.instagram.com/petsclub_store/" target="_blank" rel="noopener noreferrer" className="icon icon--insta">instagram</a> 
               </Social>
@@ -131,4 +160,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;
+export default Footer;  

@@ -100,7 +100,7 @@ const Header = () => {
             </MainMenu>
             <ContactUs>
               <span>Whatsapp: </span>
-              <a href="https://api.whatsapp.com/send?phone=50495798520&text=%F0%9F%91%8B%F0%9F%8F%BB%20%C2%A1Hola!%20%F0%9F%98%89%20Pet's%20Club%20Honduras" target="_blank" rel="noopener noreferrer">+504 9579-8520</a>
+              <a href="https://api.whatsapp.com/send?phone=50496761158&text=%F0%9F%91%8B%F0%9F%8F%BB%20%C2%A1Hola!%20%F0%9F%98%89%20Pet's%20Club%20Honduras" target="_blank" rel="noopener noreferrer">+504 9676-1158</a>
               <br />
               <span>Consulta despachos: </span>
               <a href="tel: +504 3175-6905" target="_blank" rel="noopener noreferrer">+504 3175-6905</a>

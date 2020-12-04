@@ -6,6 +6,10 @@ import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css"; 
 
 const StyledSlider = styled(Slider)`
+  .slick-list{
+    margin-left: -.5rem;
+    margin-right: -.6rem;
+  }
   .slick-slide{
     padding-bottom: 1px;
   }

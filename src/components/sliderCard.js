@@ -1,21 +1,22 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 // Styles
-import { device } from '../styles/breakpoints'
+import { device } from '../utils/breakpoints'
 
 const ProductCardWrapper = styled.article`
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  padding-right: 8px;
+  padding: 0 .5rem;
   width: 100%;
   position: relative;
   .card{
     display: block;
     color: #333;
     background: #fff;
-    box-shadow: 0 1px 0 0 rgba(0,0,0,.25);
     border: 1px solid #ddd;
+    box-shadow: 0 1px 0 #ccc;
     border-radius: 4px;
     margin-bottom: 0;
     padding: 1rem 1rem 1rem .5rem;
@@ -24,20 +25,22 @@ const ProductCardWrapper = styled.article`
     position: relative;
     &__image{
       margin-bottom: 6px;
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      img{
+      margin: 0 auto;
+      margin-bottom: 1rem;
+      width: 90px;
+      height: auto;
+      min-height: 164px;
+      .gatsby-image-wrapper{
         display: block;
         margin: 0;
-        max-width: 100%;
-        height: 125px;
-        height: 90px;
+        width: 100%;
+        height: 100%;
       }
     }
     &__content{
-      padding: 0 0 2rem;
       padding-bottom: 3rem;
       max-width: 100%;
       position: relative;
@@ -50,14 +53,14 @@ const ProductCardWrapper = styled.article`
         font-size: 13px;
       }
       .title{
-        height: 5rem;
+        height: 3rem;
       }
       .item-info{
         position: absolute;
-        bottom: -.55rem;
+        bottom: 0;
         width: 100%;
         .price{
-          color: #b32605;
+          color: #d0021b;
           font-weight: 700;
           font-size: 18px;
           margin-bottom: .25rem;
@@ -76,20 +79,20 @@ const ProductCardWrapper = styled.article`
 `
 
 const sliderCard = ({ product }) => {
-  const {title, images, variants, vendor } = product
+  const {name, image, variants, vendor } = product
   return (
     <ProductCardWrapper>
       <div className="card">
         <div className="card__image">
-          <img 
-            src={`${images[0].originalSrc}`} 
-            alt={title}
+          <Img 
+            fluid={image.fluid} 
+            alt={`${vendor.searchSummary} - ${name}`}
           />
         </div>
         <div className="card__content">
-          <p className="title"><strong>{vendor} </strong>{title}, {variants[0].title}</p>  
+          <p className="title"><strong>{vendor.searchSummary} </strong>{name}, {variants[0].name}</p>  
           <div className="item-info">
-            <p className="price">L.{variants[0].price}</p>
+            <p className="price">L. {variants[0].price}.00</p>
           </div>
         </div> 
       </div>
