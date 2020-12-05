@@ -21,6 +21,7 @@ const Products = () => {
         getProductList {
           items {
             _id
+            newProduct
             vendor {
               searchSummary
             }

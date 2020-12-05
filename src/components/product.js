@@ -37,6 +37,30 @@ export const ProductCardWrapper = styled.article`
       color: #9b9b9b;
       padding: 0 15px 0 5px;
       margin-bottom: 10px;
+      position: relative;
+      .badge{
+        position: absolute;
+        top: -20px;
+        left: 0;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        span{
+          font-size: .7rem;
+          display: block;
+          border-radius: 5px;
+          padding: 2px 6px 3px;
+        }
+        &__deal{
+          background-color: #F04359;
+        }
+        &__new{
+          background-color: #4caf50;
+        }
+      }
       .image-holder{
         display: inline-block;
         margin: 0 auto;
@@ -67,7 +91,7 @@ export const ProductCardWrapper = styled.article`
         font-weight: 400;
         text-align: left;
         line-height: 1.22em;
-        margin: 0 0 5px;
+        margin: 0 0 8px;
         strong{
           font-weight: 700;
         }
@@ -82,7 +106,6 @@ export const ProductCardWrapper = styled.article`
           font-size: 1.2em;
           font-weight: 400;
           text-align: left;
-          line-height: 1.11em;
           padding: 8px 0;
           strong{
             color: #d0021b;
@@ -116,17 +139,23 @@ export const ProductCardWrapper = styled.article`
         padding: 0;
         margin: 0;
         width: 100%;
+        .badge{
+          top: 0;
+        }
         .image-holder{
           display: flex;
           align-items: center;
           justify-content: center;
+
           margin-bottom: 10px;
-          width: 100%;
+          margin-bottom: 1rem;
+          width: 110px;
+          height: auto;
           .gatsby-image-wrapper{
+            display: block;
             margin: 0;
             width: 100%;
-            max-width: 120px;
-            min-height: 222px;
+            height: 100%;
           }
         }
         .product-choices{
@@ -159,6 +188,13 @@ export const ProductCardWrapper = styled.article`
           bottom: 0;
           left: 0;
           padding: 10px 15px;
+          &__variants{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: -.2rem;
+            margin-right: -.2rem;
+          }
           .price .price-old{
             font-size: .778em;
           }
@@ -178,6 +214,11 @@ const VariantOption = styled.div`
   padding: 0rem;
   position: relative;
   min-height: 1.4rem;
+  width: ${props => props.width};
+  padding: 0 2px;
+  @media ${device.mobileL}{
+    padding: 0 .2rem;
+  }
   .button-toggle__control{
     position: absolute;
     overflow: hidden;
@@ -191,11 +232,11 @@ const VariantOption = styled.div`
     min-height: 0;
   }
   .button-toggle__label{
+    text-align: center;
     font-weight: 700;
     display: block;
-    padding: .4rem .6rem;
+    padding: 6px 0;
     border-radius: 4px;
-    margin-right: 4px;
     margin-bottom: .2rem;
     touch-action: manipulation;
     background: #fff;
@@ -215,9 +256,9 @@ const VariantOption = styled.div`
   }
 `
 
-const RadioSelect = ({handleOption, variant, variantSelected }) => {
+const RadioSelect = ({handleOption, variant, variantSelected, width }) => {
   return (
-    <VariantOption>
+    <VariantOption width={width}>
       <input 
         id={variant.sku}
         type="radio" 
@@ -241,7 +282,9 @@ const Product = (props) => {
   const product = props
   const [ variant, setVariant ] = useState(product.variants[0])
 
-   const handleOption = event => {
+  console.log(variant)
+
+  const handleOption = event => {
     const { value } = event.target
     const variantResult = product.variants.filter(variantItem => variantItem.sku === value)
     setVariant(variantResult[0])
@@ -253,6 +296,10 @@ const Product = (props) => {
         <div className="item-image">
           <div className="image-holder">
             <Img fluid={product.image.fluid} alt={`${product.vendor.searchSummary} - ${product.name}`}/>
+          </div>
+          <div className="badge">
+            {variant.deal && <span className="badge__deal">deal</span>}
+            {product.newProduct && <span className="badge__new">new</span>}
           </div>
           {product.variants.length > 1 ? (
             <span className="product-choices">Más Opciones Disponibles</span>
@@ -272,12 +319,21 @@ const Product = (props) => {
                   handleOption={handleOption}
                   variant={variantOption}
                   variantSelected={variant.sku}
+                  width={product.variants.length === 3 ? "33.3333%" : "50%"}
                 />
               ))}
               </div>
             ) : null}
             <p className="price">
-              <span><strong>L. {variant.price}.00</strong></span>
+              {variant.deal ? (
+              <>
+                <span><strong>L. {variant.salePrice}.00</strong></span>
+                <span className="price-old">L. {variant.price}.00</span>
+              </>
+
+              ) : (
+                <span><strong>L. {variant.price}.00</strong></span>
+              )}
             </p>
             <p className="shipping">
               <strong>ENVÍO GRATIS</strong>
