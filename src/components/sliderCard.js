@@ -8,7 +8,7 @@ const ProductCardWrapper = styled.article`
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  padding: 0 .5rem;
+  padding: 0 .3rem;
   width: 100%;
   position: relative;
   .card{
@@ -30,9 +30,9 @@ const ProductCardWrapper = styled.article`
       justify-content: center;
       margin: 0 auto;
       margin-bottom: 1rem;
-      width: 90px;
+      width: 80px;
       height: auto;
-      min-height: 164px;
+      min-height: 154px;
       .gatsby-image-wrapper{
         display: block;
         margin: 0;
@@ -41,19 +41,17 @@ const ProductCardWrapper = styled.article`
       }
     }
     &__content{
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
       max-width: 100%;
       position: relative;
       flex-basis: 100%;
-      word-wrap: break-word;
       p{
         margin: 0;
         color: #555;
-        font-size: 14px;
         font-size: 13px;
       }
       .title{
-        height: 3rem;
+        height: 3.2rem;
       }
       .item-info{
         position: absolute;
@@ -68,11 +66,35 @@ const ProductCardWrapper = styled.article`
       }
     }
   }
+  @media ${device.mobileM}{
+    .card{
+      &__content{
+        padding-bottom: 3rem;
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  @media ${device.mobileL}{
+    padding: 0 .5rem;
+    .card{
+      &__image{
+        width: 90px;
+        min-height: 154px;
+      }
+      &__content{
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+  }
   @media ${device.tablet}{
     padding-right: 12px;
     .card{
-      &__image img{
-        height: 125px;
+      &__image{
+        height: 162px;
       }
     }
   }

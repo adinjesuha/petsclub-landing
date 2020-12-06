@@ -84,11 +84,22 @@ export const FlexContainer = styled.div`
   `}
 `
 
-export const H2 = styled.h2`
-  text-align: center;
-  color: #3A8537;
-  font-size: 2rem;
+export const Heading = styled.h2`
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: normal;
+  padding: .6rem 0 0;
+  margin-bottom: 1rem;
+  width: 62%;
+  min-height: 42px;
+  position: relative;
+  @media ${device.mobileL}{
+    font-size: 1.6rem;
+  }
   @media ${device.tablet}{
-    font-size: 2.5rem;
+    max-width: 55rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
   }
 `

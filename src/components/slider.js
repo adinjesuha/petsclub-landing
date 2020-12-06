@@ -28,7 +28,7 @@ const StyledSlider = styled(Slider)`
     outline: 0;
     transition: background-color .3s ease;
     /* positioning */
-    transform: translate(0, -56px);
+    transform: translate(0, -62px);
     top: 0;
     right: 0;
     left: unset;
@@ -42,7 +42,7 @@ const StyledSlider = styled(Slider)`
     }
   }
   .slick-prev{
-    transform: rotate(180deg) translate(50px, 56px);
+    transform: rotate(180deg) translate(50px, 62px);
   }
   .slick-dots{
     display: none;
@@ -93,8 +93,8 @@ const CustomSlider = ({children}) => {
         breakpoint: 375,
         settings: {
           draggable: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         }
       },
     ]

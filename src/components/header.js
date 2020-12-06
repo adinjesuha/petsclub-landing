@@ -12,18 +12,58 @@ const HeaderWrapper = styled.header`
 `
 
 const HeaderTop = styled.div`
+  background-color: #F04359;
+  width: 100%;
   left: 0;
   right: 0;
   top: 0;
 `
 
 const HeaderBottom = styled.div`
-  background-color: #F04359;
+  background-color: #222649;
   width: 100%;
   height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
-const LogoContainer = styled.div`
+const ContentSearch = styled.div`
+  position: relative;
+  min-width: 32rem;
+  max-width: 32rem;
+  margin: 0 auto;
+  .search-input{
+    background-color: #fff;
+    display: block;
+    color: #333;
+    font-size: 1rem;
+    line-height: 22px;
+    text-align: left;
+    box-shadow: none;
+    border-radius: 4px;
+    border: 0;
+    padding: .5rem;
+    height: 2.4rem;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:focus{
+      outline: 0;
+    }
+  }
+  .search-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2.4rem;
+  }
+`
+
+const LogoContainer = styled(Link)`
+  font-size: 0;
+  display: inline-block;
   width: 130px;
 `
 
@@ -77,7 +117,8 @@ const Header = () => {
       <HeaderTop>
         <Container>
           <FlexContainer spaceBetween>
-            <LogoContainer>
+            <LogoContainer to="/">
+              Pet's Club
               <Logo />
             </LogoContainer>
             <MainMenu>
@@ -109,7 +150,16 @@ const Header = () => {
         </Container>
       </HeaderTop>
       <HeaderBottom>
-        
+        {/* <ContentSearch >
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Que necesitas?"
+          />
+          <div className="search-button">
+            <button type="submit" />
+          </div>
+        </ContentSearch> */}
       </HeaderBottom>
     </HeaderWrapper>
   )

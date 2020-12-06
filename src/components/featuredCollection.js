@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import CustomSlider from './slider'
 import SliderCard from './sliderCard'
 // Styles
-import { Container } from './globals'
+import { Container, Heading } from './globals'
 
 const FeaturedSection = styled.div`
   margin-top: 3rem;
@@ -53,7 +53,7 @@ const FeaturedCollection = () => {
   return (
     <Container marginTop>
       <FeaturedSection>
-        <h3 className="header">Los Más Vendidos</h3>
+        <Heading>Los Más Vendidos</Heading>
         <CustomSlider>
           {data.takeshape.getCollection.products.map(product => (
             <SliderCard

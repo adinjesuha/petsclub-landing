@@ -4,15 +4,10 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { device } from '../utils/breakpoints'
-import { Container } from './globals'
+import { Container, Heading } from './globals'
 
 const BrandSection = styled.div`
   margin-top: 3rem;
-  .header{
-    font-size: 1.5rem;
-    font-weight: normal;
-    text-transform: uppercase;
-  }
 `
 
 const BrandsContainer = styled.div`
@@ -20,7 +15,7 @@ const BrandsContainer = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `
 
 const Brand = styled.div`
@@ -66,7 +61,7 @@ const Brands = () => {
   return(
     <Container borderBottom>
       <BrandSection>
-        <h3 className="header">12+ Marcas Y Sumando</h3>
+        <Heading>12+ Marcas Y Sumando</Heading>
         <BrandsContainer>
           {data.allFile.edges.map(image => (
             <Brand>

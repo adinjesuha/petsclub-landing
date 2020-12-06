@@ -1,11 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from 'styled-components'
 
 import SEO from "../components/seo"
 import Layout from '../components/layout'
-import { Container, FlexContainer } from "../components/globals"
+import { Container, FlexContainer, Heading } from "../components/globals"
 import Product from "../components/product"
 import Pagination from "../components/pagination"
+
+const ProdctsPageWrapper = styled.div`
+  margin-top: 3rem;
+  .header{
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+`
 
 export const productListQuery = graphql`
   query productListQuery($size: Int!, $from: Int!) {
@@ -61,20 +71,19 @@ const ProductsPage = (props) => {
     <Layout>
       <SEO 
         title={"Productos — Página " + currentPage + " de " + numPages}
-        description={"Stackrole base blog page " + currentPage + " of " + numPages }
+        description={"Página de Productos " + currentPage + " de " + numPages }
       />
-      <Container>
-        <h3 className="header">Los Más Vendidos</h3>
-        <FlexContainer alignTop flexWrap isRow>
-          {data.takeshape.getProductList.items.map(product => (
-            <Product
-              key={product.id}
-              {...product}
-            />
-          ))}
-        </FlexContainer>
-        <Pagination {...paginationProps}/>
-     </Container>
+      <ProdctsPageWrapper>
+        <Container>
+          <Heading>Los Más Vendidos</Heading>
+          <FlexContainer alignTop flexWrap isRow>
+            {data.takeshape.getProductList.items.map(product => (
+              <Product key={product.id} {...product}/>
+            ))}
+          </FlexContainer>
+          <Pagination {...paginationProps}/>
+      </Container>
+      </ProdctsPageWrapper>
     </Layout>
   )
 }

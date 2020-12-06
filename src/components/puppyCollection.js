@@ -5,15 +5,10 @@ import styled from 'styled-components'
 import CustomSlider from './slider'
 import SliderCard from './sliderCard'
 // Styles
-import { Container } from './globals'
+import { Container, Heading } from './globals'
 
 const PuppySection = styled.div`
   margin-top: 3rem;
-  .header{
-    font-size: 1.5rem;
-    font-weight: normal;
-    text-transform: uppercase;
-  }
 `
 
 const PuppyCollection = () => {
@@ -53,7 +48,7 @@ const PuppyCollection = () => {
   return (
     <Container borderBottom paddingBottom marginTop>
       <PuppySection>
-        <h3 className="header">Exclusivo para Cachorros</h3>
+        <Heading>Exclusivo para Cachorros</Heading>
         <CustomSlider>
           {data.takeshape.getCollection.products.map(product => (
             <SliderCard
