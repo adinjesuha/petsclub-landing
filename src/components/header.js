@@ -87,7 +87,7 @@ const Header = () => {
                     <Link to="/">Promociones</Link>
                   </li>
                   <li className="primary-menu__links--li">
-                    <Link to="/">Productos</Link>
+                    <Link to="/productos">Productos</Link>
                   </li>
                   <li className="primary-menu__links--li">
                     <Link to="/">Alimento</Link>

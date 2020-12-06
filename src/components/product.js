@@ -282,8 +282,6 @@ const Product = (props) => {
   const product = props
   const [ variant, setVariant ] = useState(product.variants[0])
 
-  console.log(variant)
-
   const handleOption = event => {
     const { value } = event.target
     const variantResult = product.variants.filter(variantItem => variantItem.sku === value)
