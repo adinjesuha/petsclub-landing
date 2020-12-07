@@ -584,3 +584,15 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.popper-mask-enter-done{
+  opacity:1;
+  transition: opacity .3s;
+}
+.popper-mask-exit{
+  opacity:1;
+}
+.popper-mask-exit-active{
+  opacity: 0;
+  transition: opacity .3s;
+}

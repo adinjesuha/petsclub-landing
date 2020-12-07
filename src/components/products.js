@@ -51,7 +51,7 @@ const Products = () => {
         <FlexContainer alignTop flexWrap isRow>
           {data.takeshape.getProductList.items.map(product => (
             <Product 
-              key={product.id}
+              key={product._id}
               {...product}
             />
           ))}

@@ -81,7 +81,7 @@ const ProductCardWrapper = styled.article`
     .card{
       &__image{
         width: 90px;
-        min-height: 154px;
+        min-height: 164px;
       }
       &__content{
         p{

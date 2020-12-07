@@ -1,166 +1,88 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import styled from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
-import Logo from './logo'
 import { Container, FlexContainer } from './globals'
 import { device } from '../utils/breakpoints'
+import Logo from './logo'
+import DropDownItem from "./dropDownItem";
+import Nav from './nav'
+
+const headerSlideDown = keyframes`
+  0%  { transform: translateY(-100%) }
+  100% { transform: translateY(0) }
+`
 
 const HeaderWrapper = styled.header`
   width: 100%;
+  height: 4rem;
+  position: relative;
+  z-index: 3999;
 `
 
 const HeaderTop = styled.div`
-  background-color: #F04359;
+  /* background-color: #F04359; */
+  background-color: #353a61;
   width: 100%;
+  padding: .5rem 0;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.25);
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
-`
-
-const HeaderBottom = styled.div`
-  background-color: #222649;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const ContentSearch = styled.div`
-  position: relative;
-  min-width: 32rem;
-  max-width: 32rem;
-  margin: 0 auto;
-  .search-input{
-    background-color: #fff;
-    display: block;
-    color: #333;
-    font-size: 1rem;
-    line-height: 22px;
-    text-align: left;
-    box-shadow: none;
-    border-radius: 4px;
-    border: 0;
-    padding: .5rem;
-    height: 2.4rem;
-    width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    &:focus{
-      outline: 0;
-    }
-  }
-  .search-button{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2.4rem;
+  @media ${device.laptop}{
+    position: ${props => props.show ? 'fixed' : 'absolute'};
+    box-shadow: ${props => props.show ? '0 3px 5px 0 rgba(0,0,0,.25)' : 'none'};
+    ${props => props.show && css`
+      animation: ${headerSlideDown} .3s;
+    `}
   }
 `
 
 const LogoContainer = styled(Link)`
   font-size: 0;
   display: inline-block;
-  width: 130px;
+  width: 120px;
 `
 
-const MainMenu = styled.div`
-  display: none;
-  .primary-menu{
-    &__links{
-      display: flex;
-      width: auto;
-      margin: 0;
-      &--li{
-        margin: 0;
-        padding: 0 .5rem;
-        display: flex;
-        align-items: center;
-        a{
-          color: #222649;
-          font-size: .9rem;
-          font-weight: 700;
-          text-transform: uppercase;  
-          padding: 1.85em 0;
-          text-decoration: none;
-        }
+const Header = ({ setShowPopper, showPopper }) => {
+  const [showOnScroll, setShowOnScroll] = useState(false)
+  const headerRef = useRef(null)
+
+  useEffect(() => {
+    const elementHeight = headerRef.current.offsetHeight
+    const hanldeScroll = () => {
+      const currentScrollY = window.scrollY;
+      if(500 < currentScrollY && !showOnScroll){
+        setShowOnScroll(true)
       }
-      .promo a{
-        color: #F04359;
+      if(elementHeight > currentScrollY && showOnScroll){
+        setShowOnScroll(false) 
       }
     }
-  }
-  @media ${device.tablet}{
-    display: block;
-  }
-`
+    window.addEventListener('scroll', hanldeScroll, { passive: true })
+    return ()=> window.removeEventListener('scroll', hanldeScroll)
+  }, [showOnScroll])
 
-const ContactUs = styled.div`
-  font-size: .7rem;
-  a{
-    color: #222649;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all .2s ease-in-out;
-    &:hover{
-      color: #F04359;
-    }
-  }
-`
 
-const Header = () => {
   return(
-    <HeaderWrapper>
-      <HeaderTop>
+    <HeaderWrapper ref={headerRef}>
+      <HeaderTop show={showOnScroll}>
         <Container>
           <FlexContainer spaceBetween>
             <LogoContainer to="/">
               Pet's Club
-              <Logo />
+              <Logo white/>
             </LogoContainer>
-            <MainMenu>
-              <nav className="primary-menu">
-                <ul className="primary-menu__links">
-                  <li className="primary-menu__links--li promo">
-                    <Link to="/">Promociones</Link>
-                  </li>
-                  <li className="primary-menu__links--li">
-                    <Link to="/productos">Productos</Link>
-                  </li>
-                  <li className="primary-menu__links--li">
-                    <Link to="/">Alimento</Link>
-                  </li>
-                  <li className="primary-menu__links--li">
-                    <Link to="/">Salud y belleza</Link>
-                  </li>
-                </ul>
-              </nav>
-            </MainMenu>
-            <ContactUs>
-              <span>Whatsapp: </span>
-              <a href="https://api.whatsapp.com/send?phone=50496761158&text=%F0%9F%91%8B%F0%9F%8F%BB%20%C2%A1Hola!%20%F0%9F%98%89%20Pet's%20Club%20Honduras" target="_blank" rel="noopener noreferrer">+504 9676-1158</a>
-              <br />
-              <span>Consulta despachos: </span>
-              <a href="tel: +504 3175-6905" target="_blank" rel="noopener noreferrer">+504 3175-6905</a>
-            </ContactUs>
+            <Nav />
+            <DropDownItem
+              setShowPopper={setShowPopper}
+              showPopper={showPopper}
+            />
           </FlexContainer>
         </Container>
       </HeaderTop>
-      <HeaderBottom>
-        {/* <ContentSearch >
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Que necesitas?"
-          />
-          <div className="search-button">
-            <button type="submit" />
-          </div>
-        </ContentSearch> */}
-      </HeaderBottom>
     </HeaderWrapper>
   )
 }
@@ -176,3 +98,11 @@ Header.defaultProps = {
 }
 
 export default Header
+
+// Secciones Pagina Inicio
+// -Los mas vendidos
+// -Exclusivos para cachorros
+// -- Necesidades
+// -Esculisivos para adultos
+// -Necesidades especificas
+// -Pulgas y Garrapatas

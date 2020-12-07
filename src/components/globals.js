@@ -88,7 +88,7 @@ export const Heading = styled.h2`
   display: inline-block;
   font-size: 1.2rem;
   font-weight: normal;
-  padding: .6rem 0 0;
+  padding: .4rem 0 0;
   margin-bottom: 1rem;
   width: 62%;
   min-height: 42px;

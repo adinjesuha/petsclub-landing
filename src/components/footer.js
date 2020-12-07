@@ -63,6 +63,7 @@ const ContactChannels = styled.div`
   padding-top: 1rem;
 
   span{
+    font-weight: 500;
     color: #f53e5b;
   }
   @media ${device.tablet}{
@@ -87,19 +88,6 @@ const Social = styled.div`
     height: 2.8rem;
     width: 2.8rem;
     transition: all 300ms ease-in-out;
-    &--mail{
-      background-image: url(${require('../images/message.svg')});
-      background-size: 20px auto;
-      background-position: 10px;
-      background-repeat: no-repeat;
-      margin-right: .8rem;
-      &:hover{
-        background-image: url(${require('../images/message-white.svg')});
-        background-size: 20px auto;
-        background-position: 10px;
-        background-repeat: no-repeat;
-      }
-    }
     &--fb{
       background-image: url(${require('../images/fb.svg')});
       background-size: 20px auto;
@@ -146,9 +134,8 @@ const Footer = () => {
           </FooterItem>
           <FooterItem>
             <ContactChannels>
-              <span>Contáctanos</span>
+              <span>SIGUENOS</span>
               <Social>
-                <a href="mailto:ventas@petsclubhn.com" target="_blank" rel="noopener noreferrer" className="icon icon--mail">Correo</a>
                 <a href="https://www.facebook.com/petsclubHonduras/" target="_blank" rel="noopener noreferrer" className="icon icon--fb">facebook</a> 
                 <a href="https://www.instagram.com/petsclub_store/" target="_blank" rel="noopener noreferrer" className="icon icon--insta">instagram</a> 
               </Social>
@@ -160,4 +147,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;  
+export default Footer;
