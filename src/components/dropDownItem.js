@@ -2,10 +2,15 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components'
 
+import { device } from '../utils/breakpoints'
+
 const Item = styled.div`
-  display: inline-block;
+  display: none;
   vertical-align: middle;
   position: relative;
+  @media ${device.tablet}{
+    display: inline-block;
+  }
   .popper{
     white-space: nowrap;
     .popper-animation-enter-done{
@@ -112,6 +117,7 @@ const Item = styled.div`
         .header{
           text-align: center;
           &__text{
+            color: rgba(34, 38, 73, .5);
             margin-top: 1rem;
             margin-bottom: .5rem;
           }
@@ -168,6 +174,7 @@ const Item = styled.div`
           }
         }
         .footer{
+          color: rgba(34, 38, 73, .5);
           text-align: center;
           margin: 0;
         }

@@ -134,7 +134,7 @@ const Footer = () => {
           </FooterItem>
           <FooterItem>
             <ContactChannels>
-              <span>SIGUENOS</span>
+              <span>Síguenos</span>
               <Social>
                 <a href="https://www.facebook.com/petsclubHonduras/" target="_blank" rel="noopener noreferrer" className="icon icon--fb">facebook</a> 
                 <a href="https://www.instagram.com/petsclub_store/" target="_blank" rel="noopener noreferrer" className="icon icon--insta">instagram</a> 

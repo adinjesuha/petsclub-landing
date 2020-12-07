@@ -16,9 +16,12 @@ const headerSlideDown = keyframes`
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  height: 4rem;
+  height: 3.6rem;
   position: relative;
   z-index: 3999;
+  @media ${device.tablet}{
+    height: 4rem;
+  }
 `
 
 const HeaderTop = styled.div`
@@ -43,7 +46,64 @@ const HeaderTop = styled.div`
 const LogoContainer = styled(Link)`
   font-size: 0;
   display: inline-block;
-  width: 120px;
+  width: 90px;
+  @media ${device.tablet}{
+    width: 120px;
+  }
+`
+
+const NavButton = styled.button`
+  display: inline-block;
+  background-color: #222649;
+  color: inherit;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  color: inherit;
+  vertical-align: middle;
+  &:before, &:after, .nav-button__line{
+    content: "";
+    width: 1.875rem;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateZ(0);
+    margin-left: -.9375rem;
+    transition: opacity .1s ease-in,transform .3s ease-out,-webkit-transform .3s ease-out;
+    transition: opacity .1s ease-in,-webkit-transform .3s ease-out;
+    transition: opacity .1s ease-in,transform .3s ease-out;
+  }
+  .nav-button__line{
+    margin-top: -.125rem;
+  }
+  &:before{
+    margin-top: -.75rem;
+    transform-origin: top left;
+  }
+  &:after{
+    margin-top: .5rem;
+    transform-origin: bottom left;
+  }
+  @media ${device.tablet}{
+    display: none;
+  }
+`
+
+const PlaceHolerDiv = styled.div`
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
 `
 
 const Header = ({ setShowPopper, showPopper }) => {
@@ -71,11 +131,15 @@ const Header = ({ setShowPopper, showPopper }) => {
       <HeaderTop show={showOnScroll}>
         <Container>
           <FlexContainer spaceBetween>
+            <NavButton onClick={() => console.log('hi')}>
+              <span className="nav-button__line"></span>
+            </NavButton>
             <LogoContainer to="/">
               Pet's Club
               <Logo white/>
             </LogoContainer>
             <Nav />
+            <PlaceHolerDiv/>
             <DropDownItem
               setShowPopper={setShowPopper}
               showPopper={showPopper}
