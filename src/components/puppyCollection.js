@@ -27,7 +27,7 @@ const PuppyCollection = () => {
             }
             image{
               path
-              fluid(maxWidth: 225, maxHeight: 400) {
+              fluid(maxWidth: 190) {
                 ...GatsbyTakeShapeImageFluid
               }
             }

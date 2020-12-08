@@ -30,9 +30,8 @@ const ProductCardWrapper = styled.article`
       justify-content: center;
       margin: 0 auto;
       margin-bottom: 1rem;
-      width: 80px;
-      height: auto;
-      min-height: 154px;
+      width: 100%;
+      min-height: 120px;
       .gatsby-image-wrapper{
         display: block;
         margin: 0;
@@ -80,8 +79,8 @@ const ProductCardWrapper = styled.article`
     padding: 0 .5rem;
     .card{
       &__image{
-        width: 90px;
-        min-height: 164px;
+        width: 100%;
+        min-height: 190px;
       }
       &__content{
         p{
@@ -94,7 +93,7 @@ const ProductCardWrapper = styled.article`
     padding-right: 12px;
     .card{
       &__image{
-        height: 162px;
+        min-height: 180px;
       }
     }
   }
