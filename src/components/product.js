@@ -298,8 +298,6 @@ const Product = (props) => {
       media: "(min-width: 426px)",
     },
   ]
-  
-  console.log(sources)
 
   return (
     <ProductCardWrapper>

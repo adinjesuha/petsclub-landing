@@ -34,6 +34,12 @@ export const productListQuery = graphql`
               ...GatsbyTakeShapeImageFluid
             }
           }
+          imageSmall{
+            path
+            fluid(maxWidth: 225, maxHeight: 400) {
+              ...GatsbyTakeShapeImageFluid
+            }
+          }
           variants{
             sku
             name
