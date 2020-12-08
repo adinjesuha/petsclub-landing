@@ -289,10 +289,13 @@ const Product = (props) => {
   }
 
   const sources = [
-    product.imageSmall.fluid,
+    {
+      ...product.imageSmall.fluid,
+      media: "(max-width: 425px)"
+    },
     {
       ...product.image.fluid,
-      media: "(min-width: 425px)",
+      media: "(min-width: 426px)",
     },
   ]
   
