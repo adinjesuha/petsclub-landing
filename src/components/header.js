@@ -8,6 +8,7 @@ import { device } from '../utils/breakpoints'
 import Logo from './logo'
 import DropDownItem from "./dropDownItem";
 import Nav from './nav'
+import NavMobile from './navMobile'
 
 const headerSlideDown = keyframes`
   0%  { transform: translateY(-100%) }
@@ -69,6 +70,7 @@ const NavButton = styled.button`
   border-radius: 4px;
   color: inherit;
   vertical-align: middle;
+  cursor: pointer;
   &:before, &:after, .nav-button__line{
     content: "";
     width: 1.875rem;
@@ -80,8 +82,6 @@ const NavButton = styled.button`
     left: 50%;
     transform: translateZ(0);
     margin-left: -.9375rem;
-    transition: opacity .1s ease-in,transform .3s ease-out,-webkit-transform .3s ease-out;
-    transition: opacity .1s ease-in,-webkit-transform .3s ease-out;
     transition: opacity .1s ease-in,transform .3s ease-out;
   }
   .nav-button__line{
@@ -98,6 +98,17 @@ const NavButton = styled.button`
   @media ${device.tablet}{
     display: none;
   }
+  ${props => props.isActive && css`
+    .nav-button__line{
+      opacity: 0;
+    }
+    &:before{
+      transform: translate(.4rem) rotate(45deg);
+    }
+    &:after{
+      transform: translate(.4rem) rotate(-45deg);
+    }
+  `}
 `
 
 const PlaceHolerDiv = styled.div`
@@ -107,7 +118,8 @@ const PlaceHolerDiv = styled.div`
 `
 
 const Header = ({ setShowPopper, showPopper }) => {
-  const [showOnScroll, setShowOnScroll] = useState(false)
+  const [ activeButton, setActiveButton ] = useState(false)
+  const [ showOnScroll, setShowOnScroll ] = useState(false)
   const headerRef = useRef(null)
 
   useEffect(() => {
@@ -125,13 +137,15 @@ const Header = ({ setShowPopper, showPopper }) => {
     return ()=> window.removeEventListener('scroll', hanldeScroll)
   }, [showOnScroll])
 
-
   return(
     <HeaderWrapper ref={headerRef}>
       <HeaderTop show={showOnScroll}>
         <Container>
           <FlexContainer spaceBetween>
-            <NavButton onClick={() => console.log('hi')}>
+            <NavButton
+              onClick={() => setActiveButton(!activeButton)}
+              isActive={activeButton}
+            >
               <span className="nav-button__line"></span>
             </NavButton>
             <LogoContainer to="/">
@@ -139,6 +153,7 @@ const Header = ({ setShowPopper, showPopper }) => {
               <Logo white/>
             </LogoContainer>
             <Nav />
+            <NavMobile showNav={activeButton}/>
             <PlaceHolerDiv/>
             <DropDownItem
               setShowPopper={setShowPopper}

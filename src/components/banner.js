@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import { Container } from './globals'
-import { device } from '../utils/breakpoints'
 
 const BannerContainer = styled.div`
   width: 100%;
