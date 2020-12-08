@@ -63,9 +63,9 @@ const Brands = () => {
       <BrandSection>
         <Heading>12+ Marcas Y Sumando</Heading>
         <BrandsContainer>
-          {data.allFile.edges.map(image => (
+          {data.allFile.edges.map((image, i) => (
             <Brand>
-              <Img fluid={image.node.childImageSharp.fluid} key={image.node.base}/>
+              <Img fluid={image.node.childImageSharp.fluid} key={i}/>
             </Brand>
           ))}
         </BrandsContainer>

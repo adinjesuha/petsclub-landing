@@ -149,13 +149,13 @@ export const ProductCardWrapper = styled.article`
 
           margin-bottom: 10px;
           margin-bottom: 1rem;
-          width: 110px;
-          height: auto;
+          min-height: 190px;
           .gatsby-image-wrapper{
             display: block;
             margin: 0;
-            width: 100%;
             height: 100%;
+            width: 100%;
+            max-width: 190px;
           }
         }
         .product-choices{
@@ -288,12 +288,22 @@ const Product = (props) => {
     setVariant(variantResult[0])
   }
 
+  const sources = [
+    product.imageSmall.fluid,
+    {
+      ...product.image.fluid,
+      media: "(min-width: 425px)",
+    },
+  ]
+  
+  console.log(sources)
+
   return (
     <ProductCardWrapper>
       <div className="product">
         <div className="item-image">
           <div className="image-holder">
-            <Img fluid={product.image.fluid} alt={`${product.vendor.searchSummary} - ${product.name}`}/>
+            <Img fluid={sources} alt={`${product.vendor.searchSummary} - ${product.name}`}/>
           </div>
           <div className="badge">
             {variant.deal && <span className="badge__deal">deal</span>}
