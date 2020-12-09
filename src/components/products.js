@@ -28,13 +28,13 @@ const Products = () => {
             name
             image{
               path
-              fluid(maxWidth: 190) {
+              fluid(maxWidth: 190, quality: 100) {
                 ...GatsbyTakeShapeImageFluid
               }
             }
             imageSmall{
               path
-              fluid(maxWidth: 110) {
+              fluid(maxWidth: 110, quality: 100) {
                 ...GatsbyTakeShapeImageFluid
               }
             }

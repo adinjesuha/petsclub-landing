@@ -51,7 +51,7 @@ const FeaturedCollection = () => {
 
 
   return (
-    <Container marginTop>
+    <Container marginTop borderBottom>
       <FeaturedSection>
         <Heading>Los Más Vendidos</Heading>
         <CustomSlider>

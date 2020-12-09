@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 
 import { device } from '../utils/breakpoints'
+import DropDownItem from './dropDownItem'
+import FoodDropDownItem from './foodDropDownItem'
 
 const MainMenu = styled.div`
   display: none;
@@ -16,7 +18,7 @@ const MainMenu = styled.div`
         padding: 0 .5rem;
         display: flex;
         align-items: center;
-        a{
+        > a{
           background: transparent;
           display: inline-block;
           color: #fff;
@@ -34,9 +36,12 @@ const MainMenu = styled.div`
           vertical-align: middle;
           white-space: nowrap;
         }
-        &:hover a{
+        &:hover > a{
           background-color: #222649;
         }
+      }
+      .li--active a{
+        color: #F04359;
       }
     }
   }
@@ -45,15 +50,21 @@ const MainMenu = styled.div`
   }
 `
 
-const Nav = () => (
+const Nav = ({setShowPopper}) => (
   <MainMenu>
     <nav className="primary-menu">
       <ul className="primary-menu__links">
-        <li className="primary-menu__links--li">
-          <Link to="/">Alimento</Link>
+        <li className="primary-menu__links--li li--active">
+          <Link to="/productos">Promociones</Link>
         </li>
         <li className="primary-menu__links--li">
-          <Link to="/productos">Enlatados y Snacks</Link>
+          {/* <Link to="/">Alimento</Link> */}
+          <DropDownItem title="Alimento" setShowPopper={setShowPopper}>
+            <FoodDropDownItem />
+          </DropDownItem>
+        </li>
+        <li className="primary-menu__links--li">
+          <Link to="/">Farmacia</Link>
         </li>
         <li className="primary-menu__links--li">
           <Link to="/">Salud y belleza</Link>

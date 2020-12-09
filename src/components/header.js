@@ -9,6 +9,7 @@ import Logo from './logo'
 import DropDownItem from "./dropDownItem";
 import Nav from './nav'
 import NavMobile from './navMobile'
+import HelpDropDownItem from './helpDropDownItem'
 
 const headerSlideDown = keyframes`
   0%  { transform: translateY(-100%) }
@@ -115,9 +116,12 @@ const PlaceHolerDiv = styled.div`
   width: 2.5rem;
   height: 2.5rem;
   background-color: transparent;
+  @media  ${device.tablet}{
+    display: none;
+  }
 `
 
-const Header = ({ setShowPopper, showPopper }) => {
+const Header = ({ setShowPopper }) => {
   const [ activeButton, setActiveButton ] = useState(false)
   const [ showOnScroll, setShowOnScroll ] = useState(false)
   const headerRef = useRef(null)
@@ -152,13 +156,12 @@ const Header = ({ setShowPopper, showPopper }) => {
               Pet's Club
               <Logo white/>
             </LogoContainer>
-            <Nav />
+            <Nav setShowPopper={setShowPopper}/>
             <NavMobile showNav={activeButton}/>
             <PlaceHolerDiv/>
-            <DropDownItem
-              setShowPopper={setShowPopper}
-              showPopper={showPopper}
-            />
+            <DropDownItem title="Contáctanos" setShowPopper={setShowPopper}>
+              <HelpDropDownItem />
+            </DropDownItem>
           </FlexContainer>
         </Container>
       </HeaderTop>
