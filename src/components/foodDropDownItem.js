@@ -48,10 +48,10 @@ const FoodDropDownItem = () => (
   <Content>
     <ul className="content__list">
       <li>
-        <Link to="/">Alimento para Perros</Link>
+        <Link to="/alimento-para-perros">Alimento para Perros</Link>
       </li>
       <li>
-        <Link to="/">Alimento para Gatos</Link>
+        <Link to="/alimento-para-gatos">Alimento para Gatos</Link>
       </li>
       <li>
         <Link to="/">Necesidades Especificas</Link>

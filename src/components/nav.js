@@ -55,7 +55,7 @@ const Nav = ({setShowPopper}) => (
     <nav className="primary-menu">
       <ul className="primary-menu__links">
         <li className="primary-menu__links--li li--active">
-          <Link to="/productos">Promociones</Link>
+          <Link to="/">Promociones</Link>
         </li>
         <li className="primary-menu__links--li">
           {/* <Link to="/">Alimento</Link> */}

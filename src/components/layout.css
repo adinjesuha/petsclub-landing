@@ -585,6 +585,12 @@ pre tt:after {
   }
 }
 
+.header{
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
 /* ::::::: Popper Mask Animations ::::::: */
 .popper-mask-enter-done{
   opacity:1;

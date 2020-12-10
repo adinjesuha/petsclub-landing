@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import { Container, FlexContainer, Heading } from "../components/globals"
 import Product from "../components/product"
 import Pagination from "../components/pagination"
+import Banner from "../components/banner"
 
 const ProdctsPageWrapper = styled.div`
   margin-top: 3rem;
@@ -17,12 +18,18 @@ const ProdctsPageWrapper = styled.div`
   }
 `
 
-export const productListQuery = graphql`
-  query productListQuery($size: Int!, $from: Int!) {
+export const CatProductListQuery = graphql`
+  query catProductListQuery($size: Int!, $from: Int!) {
     takeshape {
-      getProductList(size: $size, from: $from) {
+      getProductList(
+        size: $size, 
+        from: $from,
+      ) {
         items {
           _id
+          specie{
+            name
+          }
           newProduct
           vendor {
             searchSummary
@@ -53,45 +60,49 @@ export const productListQuery = graphql`
   }
 `
 
-const ProductsPage = (props) => {
-  console.log(props)
+const ProductsCatPage = (props) => {
   const { data } = props
-  const { currentPage, numPages } = props.pageContext
-  const productSlug = '/productos/' 
+  const { currentPage, catNumPages } = props.pageContext
+  const productSlug = '/alimento-para-gatos/' 
   const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
+  const isLast = currentPage === catNumPages
   const prevPage = currentPage - 1 === 1 ? productSlug : productSlug + (currentPage - 1).toString()
   const nextPage = productSlug + (currentPage + 1).toString()
 
   let paginationProps = {
     isFirst,
     prevPage,
-    numPages,
+    numPages: catNumPages,
     productSlug,
     currentPage,
     isLast,
     nextPage
   }
 
-  return (
+  console.log(data.takeshape.getProductList.items.filter(product => product.specie.name === "Cat"))
+
+  return (  
     <Layout>
       <SEO 
-        title={"Productos — Página " + currentPage + " de " + numPages}
-        description={"Página de Productos " + currentPage + " de " + numPages }
+        title={"Alimento — Página " + currentPage + " de " + catNumPages}
+        description={"Alimento para Gatos " + currentPage + " de " + catNumPages }
       />
       <ProdctsPageWrapper>
+        <Banner />
         <Container>
-          <Heading>Los Más Vendidos</Heading>
+          <Heading>Alimento para Gatos</Heading>
           <FlexContainer alignTop flexWrap isRow>
             {data.takeshape.getProductList.items.map(product => (
               <Product key={product.id} {...product}/>
             ))}
           </FlexContainer>
-          <Pagination {...paginationProps}/>
+          {catNumPages > 1 ? (
+            <Pagination {...paginationProps}/>
+          ) : null}
       </Container>
       </ProdctsPageWrapper>
     </Layout>
   )
 }
 
-export default ProductsPage
+export default ProductsCatPage
