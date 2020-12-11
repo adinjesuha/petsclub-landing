@@ -81,20 +81,34 @@ const NavMobile = ({showNav}) => {
         <div className="mobile-content">
           <ul className="mobile-content__menu">
             <li>
-              <Link to="/productos">Productos</Link>
+              <Link to="/alimento-para-perros">Alimento para Perros</Link>
             </li>
             <li>
-              <Link to="/">Content</Link>
+              <Link to="/alimento-para-gatos">Alimento para Gatos</Link>
             </li>
             <li>
-              <Link to="/">Content</Link>
+              <Link to="/necesidades-especificas">Necesidades Especificas</Link>
             </li>
             <li>
-              <Link to="/">Content</Link>
+              <Link to="/enlatados">Enlatados</Link>
+            </li>
+            <li>
+              <Link to="/treats">Treats</Link>
+            </li>
+            <li>
+              <Link to="/farmacia">Farmacia</Link>
+            </li>
+            <li>
+              <Link to="/salud-y-belleza">Salud y Belleza</Link>
             </li>
           </ul>
         </div>
-        <a href="https://api.whatsapp.com/send?phone=50496761158&text=%F0%9F%91%8B%F0%9F%8F%BB%20%C2%A1Hola!%20%F0%9F%98%89%20Pet's%20Club%20Honduras" target="_blank" rel="noopener noreferrer" className="mobile-link">
+        <a  
+          href="tel: +504 9676-1158" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mobile-link"
+        >
           <strong>Contáctanos</strong>{" "}504 9676-1158
         </a>
       </Nav>

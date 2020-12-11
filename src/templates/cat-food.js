@@ -8,7 +8,6 @@ import Layout from '../components/layout'
 import { Container, FlexContainer, Heading } from "../components/globals"
 import Product from "../components/product"
 import Pagination from "../components/pagination"
-import Banner from "../components/banner"
 
 const ProdctsPageWrapper = styled.div`
   margin-top: 3rem;

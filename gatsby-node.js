@@ -46,7 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const dogProducts = data.dog.getProductList.items
   const catProducts = data.cat.getProductList.items
   
-  const productsPerPage = 5
+  const productsPerPage = 20
   
   const dogNumPages = Math.ceil(dogProducts.length / productsPerPage)
   const catNumPages = Math.ceil(catProducts.length / productsPerPage)

@@ -17,12 +17,21 @@ const BannerContainer = styled.article`
   width: 100%;
   height: auto;
   ${props => props.column && css`
-    padding: 0 .5rem;
-    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 1rem;
     @media ${device.mobileL}{
-      width: 50%;
+      width: calc(50% - .5rem);
+      &:nth-child(2){
+        margin-right: .5rem;
+      }
+      &:nth-child(3){
+        margin-left: .5rem;
+      }
     }
   `}
+  @media ${device.mobileL}{
+    margin-bottom: 1rem
+  }
 `
 
 const Promos = () => {
@@ -49,7 +58,7 @@ const Promos = () => {
           }
         }
       },
-      fleaBanner: file(relativePath: { eq: "flea-banner.jpg" }) {
+      fleaBanner: file(relativePath: { eq: "flea-banner.png" }) {
         childImageSharp {
           fluid(maxWidth: 624, quality: 100) {
             ...GatsbyImageSharpFluid
@@ -80,15 +89,13 @@ const Promos = () => {
         <BannerContainer>
           <Img fluid={sources}/>
         </BannerContainer>
+        <BannerContainer column>
+          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+        </BannerContainer>
+        <BannerContainer column>
+          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+        </BannerContainer>
       </PromosHeader>
-      <FlexContainer isRow>
-        <BannerContainer column>
-          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
-        </BannerContainer>
-        <BannerContainer column>
-          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
-        </BannerContainer>
-      </FlexContainer>
     </Container>
   )
 }
