@@ -180,11 +180,3 @@ Header.defaultProps = {
 }
 
 export default Header
-
-// Secciones Pagina Inicio
-// -Los mas vendidos
-// -Exclusivos para cachorros
-// -- Necesidades
-// -Esculisivos para adultos
-// -Necesidades especificas
-// -Pulgas y Garrapatas

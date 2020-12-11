@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
-import { Container } from './globals'
+import { Container, FlexContainer } from './globals'
 import { device } from '../utils/breakpoints'
 
 const PromosHeader = styled.div`
@@ -18,8 +18,10 @@ const BannerContainer = styled.article`
   height: auto;
   ${props => props.column && css`
     padding: 0 .5rem;
-    height: 250px;
     overflow: hidden;
+    @media ${device.mobileL}{
+      width: 50%;
+    }
   `}
 `
 
@@ -43,6 +45,13 @@ const Promos = () => {
       mobileBanner: file(relativePath: { eq: "big-banner-small.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 800, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
+      fleaBanner: file(relativePath: { eq: "flea-banner.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 624, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -72,6 +81,14 @@ const Promos = () => {
           <Img fluid={sources}/>
         </BannerContainer>
       </PromosHeader>
+      <FlexContainer isRow>
+        <BannerContainer column>
+          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+        </BannerContainer>
+        <BannerContainer column>
+          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+        </BannerContainer>
+      </FlexContainer>
     </Container>
   )
 }

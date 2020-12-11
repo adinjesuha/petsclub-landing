@@ -10,24 +10,24 @@ const BannerContainer = styled.div`
   height: auto;
 `
 
-const Banner = ({img}) => {
+const Banner = () => {
   const data = useStaticQuery(graphql`
     query {
-      bannerSmall: file(relativePath: { eq: "banner-example-small.png" }) {
+      bannerSmall: file(relativePath: { eq: "nutrisource-banner-small.png" }) {
         childImageSharp {
           fluid(maxWidth: 520) {
             ...GatsbyImageSharpFluid
           }
         }
       },
-      banner: file(relativePath: { eq: "banner-example.jpg" }) {
+      bannerMedium: file(relativePath: { eq: "nutrisource-banner-medium.png" }) {
         childImageSharp {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
           }
         }
       },
-      bannerLarge: file(relativePath: { eq: "banner-example-large.jpg" }) {
+      bannerLarge: file(relativePath: { eq: "nutrisource-banner.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
@@ -37,18 +37,22 @@ const Banner = ({img}) => {
     }
   `)
   const sources = [
-    data.bannerSmall.childImageSharp.fluid,
     {
-      ...data.banner.childImageSharp.fluid,
-      media: "(min-width: 521px)",
+      ...data.bannerSmall.childImageSharp.fluid,
+      media: "(max-width: 520px)"
+    },
+    {
+      ...data.bannerMedium.childImageSharp.fluid,
+      media: "(max-width: 768px)",
     },
     {
       ...data.bannerLarge.childImageSharp.fluid,
-      media: "(min-width: 768px)",
+      media: "(min-width: 769px)",
     },
   ]
+
   return(
-    <Container borderBottom paddingBottom marginTop>
+    <Container>
       <BannerContainer>
         <Img fluid={sources} alt="Banner example" />
       </BannerContainer>

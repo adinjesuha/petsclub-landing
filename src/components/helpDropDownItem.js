@@ -29,6 +29,7 @@ const Item = styled.div`
       color: rgba(34, 38, 73, .5);
       margin-top: 1rem;
       margin-bottom: .5rem;
+      font-size: 1rem;
     }
     &__number{
       font-size: 2rem;

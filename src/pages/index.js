@@ -8,6 +8,8 @@ import Promos from "../components/promos"
 import Products from "../components/products"
 import FeaturedCollection from "../components/featuredCollection"
 import PuppyCollection from "../components/puppyCollection"
+import SpecificNeedsCollection from '../components/specificNeedsCollection'
+import FleaAndTickCollection from '../components/fleaAndTickCollection'
 import Banner from "../components/banner"
 
 const IndexPage = () => (
@@ -18,6 +20,8 @@ const IndexPage = () => (
     <Brands />
     <PuppyCollection />
     <Banner />
+    <SpecificNeedsCollection />
+    <FleaAndTickCollection />
     <Products />
     <NewsLetter />
   </Layout>
