@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
-import { Container, FlexContainer } from './globals'
+import { Container } from './globals'
 import { device } from '../utils/breakpoints'
 
 const PromosHeader = styled.div`

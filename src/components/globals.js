@@ -87,19 +87,91 @@ export const FlexContainer = styled.div`
 export const Heading = styled.h2`
   display: inline-block;
   font-size: 1.2rem;
-  font-weight: normal;
+  font-weight: ${props => props.medium ? "medium" : "normal"};;
   padding: .4rem 0 0;
   margin-bottom: 1rem;
   width: 62%;
   min-height: 42px;
   position: relative;
+  text-transform: ${props => props.capitalize ? "capitalize" : "uppercase"};
   @media ${device.mobileL}{
     font-size: 1.6rem;
   }
   @media ${device.tablet}{
     max-width: 55rem;
     font-size: 1.8rem;
-    text-transform: uppercase;
     margin-bottom: 1.4rem;
+  }
+`
+
+// Templates Styles
+export const PageWrapper = styled.div`
+  padding-top: 3rem;
+  background-color: ${props => props.withBg ? "#fcfcfc" : "transparent"};
+`
+
+export const BannerContainer = styled.div`
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+`
+
+export const Filters = styled.aside`
+  width: 232px;
+  padding: 0 25px 0 0;
+  display: none;
+  .filters-container{
+    padding: 0;
+    margin: 0;
+    &__header{
+      position: relative;
+      h3{
+        font-size: 1.3rem;
+        line-height: 1.33333;
+        margin-top: -.3px;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+    }
+    &__content{
+      padding: 25px 0 20px;
+      border-bottom: 1px solid #ddd;
+      h4{
+        font-size: 1.1rem;
+        line-height: 1.33333;
+        margin-top: -.3px;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      .categories{
+        margin-top: 1rem;
+        &__item{
+          font-size: .875rem;
+          padding: 0;
+          margin-bottom: .8125rem;
+          display: flex;
+          a{
+            flex: 1;
+            color: #F04359;
+            text-decoration: none;
+          }
+          &:hover a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  @media ${device.laptop}{
+    display: block;
+  }
+`
+
+export const Results = styled.div`
+  width: 100%;
+  .results-content{
+    margin: 0;
+    margin-top: 2rem;
   }
 `

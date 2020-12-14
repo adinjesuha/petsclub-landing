@@ -24,7 +24,7 @@ export const ProductCardWrapper = styled.article`
   @media ${device.laptop}{
     width: calc(25% - 16px);
   }
-  @media ${device.laptopL}{
+  @media ${device.desktop}{
     width: calc(20% - 16px);
   }
   .product{

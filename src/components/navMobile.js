@@ -99,7 +99,7 @@ const NavMobile = ({showNav}) => {
               <Link to="/farmacia">Farmacia</Link>
             </li>
             <li>
-              <Link to="/salud-y-belleza">Salud y Belleza</Link>
+              <Link to="/salud-y-belleza">Higiene y Belleza</Link>
             </li>
           </ul>
         </div>

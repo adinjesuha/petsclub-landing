@@ -1,22 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
-import styled from 'styled-components'
 
 import SEO from "../components/seo"
 import Layout from '../components/layout'
-import { Container, FlexContainer, Heading } from "../components/globals"
+import { Container, FlexContainer, Heading, PageWrapper, BannerContainer, Filters, Results } from "../components/globals"
 import Product from "../components/product"
 import Pagination from "../components/pagination"
-
-const ProdctsPageWrapper = styled.div`
-  margin-top: 3rem;
-`
-
-const BannerContainer = styled.div`
-  width: 100%;
-  height: auto;
-`
 
 const ProductsCatPage = (props) => {
   const { data } = props
@@ -39,15 +29,15 @@ const ProductsCatPage = (props) => {
 
   const sources = [
     {
-      ...data.bannerSmall.childImageSharp.fluid,
+      ...data.takeshape.getCollection.imageSm.fluid,
       media: "(max-width: 520px)"
     },
     {
-      ...data.bannerMedium.childImageSharp.fluid,
+      ...data.takeshape.getCollection.imageMd.fluid,
       media: "(max-width: 768px)",
     },
     {
-      ...data.bannerLarge.childImageSharp.fluid,
+      ...data.takeshape.getCollection.image.fluid,
       media: "(min-width: 769px)",
     },
   ]
@@ -55,25 +45,58 @@ const ProductsCatPage = (props) => {
   return (  
     <Layout>
       <SEO 
-        title={"Alimento — Página " + currentPage + " de " + catNumPages}
-        description={"Alimento para Gatos " + currentPage + " de " + catNumPages }
+        title={"Alimento para Gatos - Página " + currentPage + " de " + catNumPages}
+        description={"Alimento para Gatos - Página " + currentPage + " de " + catNumPages}
       />
-      <ProdctsPageWrapper>
+      <PageWrapper withBg>
         <Container>
-          <Heading>Alimento para Gatos</Heading>
-          <BannerContainer>
-            <Img fluid={sources} alt="Alimento para Gatos Pets Club" />
-          </BannerContainer>
-          <FlexContainer alignTop flexWrap isRow>
-            {data.takeshape.getProductList.items.map(product => (
-              <Product key={product.id} {...product}/>
-            ))}
+          <FlexContainer alignTop>
+            <Filters>
+              <div className="filters-container">
+                <header className="filters-container__header">
+                  <h3>Filtrar por:</h3>
+                </header>
+                <div className="filters-container__content">
+                  <h4>Categorias</h4>
+                  <ul className="categories">
+                    <li className="categories__item">
+                      <Link to="/">Cachorro</Link>
+                    </li>
+                    <li className="categories__item">
+                      <Link to="/">Adulto</Link>
+                    </li>
+                    <li className="categories__item">
+                      <Link to="/">Adulto Mayor</Link>
+                    </li>
+                    <li className="categories__item">
+                      <Link to="/">Libre de Granos</Link>
+                    </li>
+                    <li className="categories__item">
+                      <Link to="/">Necesidades Especificas</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Filters>
+            <Results>
+              <div className="results-content">
+                <Heading capitalize medium>{data.takeshape.getCollection.title}</Heading>
+                <BannerContainer>
+                  <Img fluid={sources} alt="Alimento para Gatos Pets Club" />
+                </BannerContainer>
+                <FlexContainer alignTop flexWrap isRow>
+                  {data.takeshape.getCollection.products.map(product => (
+                    <Product key={product.id} {...product}/>
+                  ))}
+                </FlexContainer>
+                {catNumPages > 1 ? (
+                  <Pagination {...paginationProps}/>
+                ) : null}
+              </div>
+            </Results>
           </FlexContainer>
-          {catNumPages > 1 ? (
-            <Pagination {...paginationProps}/>
-          ) : null}
-      </Container>
-      </ProdctsPageWrapper>
+        </Container>
+      </PageWrapper>
     </Layout>
   )
 }
@@ -81,52 +104,45 @@ const ProductsCatPage = (props) => {
 export default ProductsCatPage
 
 export const CatProductListQuery = graphql`
-  query catProductListQuery($size: Int!, $from: Int!) {
-    bannerSmall: file(relativePath: { eq: "cat-food-banner-small.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 520) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    },
-    bannerMedium: file(relativePath: { eq: "cat-food-banner-medium.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    },
-    bannerLarge: file(relativePath: { eq: "cat-food-banner.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 1280) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+  query catProductListQuery{
     takeshape {
-      getProductList(
-        size: $size, 
-        from: $from,
-      ) {
-        items {
-          _id
-          specie{
-            name
+      getCollection(_id: "ed519762-47ce-43cf-a930-02556d67390a") {
+        _id
+        title
+        image {
+          path
+          fluid(maxWidth: 1100, quality: 100) {
+            ...GatsbyTakeShapeImageFluid
           }
+        }
+        imageMd {
+          path
+          fluid(maxWidth: 700, quality: 100) {
+            ...GatsbyTakeShapeImageFluid
+          }
+        }
+        imageSm {
+          path
+          fluid(maxWidth: 420, quality: 100) {
+            ...GatsbyTakeShapeImageFluid
+          }
+        }
+        products {
+          _id
+          name
           newProduct
           vendor {
-            searchSummary
+            name
           }
-          name
           image{
             path
-            fluid(maxWidth: 225, maxHeight: 400) {
+            fluid(maxWidth: 190, quality: 100) {
               ...GatsbyTakeShapeImageFluid
             }
           }
           imageSmall{
             path
-            fluid(maxWidth: 225, maxHeight: 400) {
+            fluid(maxWidth: 110, quality: 100) {
               ...GatsbyTakeShapeImageFluid
             }
           }

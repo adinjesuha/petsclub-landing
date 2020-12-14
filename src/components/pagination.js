@@ -5,7 +5,7 @@ import { device } from "../utils/breakpoints"
 
 const PaginationWrapper = styled.section`
 border-top: 1px solid #ddd;
-margin: 8rem .98% 2.3rem;
+margin: 6rem .98% 2.3rem;
 padding-top: 20px;
 .pagination{
   padding: 0;

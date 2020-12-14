@@ -1,15 +1,11 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-import styled from 'styled-components'
 // Components
 import CustomSlider from './slider'
 import SliderCard from './sliderCard'
 // Styles
 import { Container, Heading } from './globals'
 
-const PuppySection = styled.div`
-  margin-top: 3rem;
-`
 
 const FleaAndTickCollection = () => {
   const data = useStaticQuery(graphql`
@@ -46,18 +42,16 @@ const FleaAndTickCollection = () => {
 
 
   return (
-    <Container borderBottom paddingBottom marginTop>
-      <PuppySection>
-        <Heading>Contra las Pulgas y Garrapatas</Heading>
-        <CustomSlider>
-          {data.takeshape.getCollection.products.map(product => (
-            <SliderCard
-              key={product._id}
-              product={product}
-            />
-          ))}
-        </CustomSlider>
-      </PuppySection>
+    <Container borderBottom paddingBottom>
+      <Heading>Contra las Pulgas y Garrapatas</Heading>
+      <CustomSlider>
+        {data.takeshape.getCollection.products.map(product => (
+          <SliderCard
+            key={product._id}
+            product={product}
+          />
+        ))}
+      </CustomSlider>
     </Container>
   )
 }

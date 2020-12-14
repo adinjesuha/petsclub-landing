@@ -67,7 +67,7 @@ const Nav = ({setShowPopper}) => (
           <Link to="/">Farmacia</Link>
         </li>
         <li className="primary-menu__links--li">
-          <Link to="/">Salud y belleza</Link>
+          <Link to="/">Higiene y Belleza</Link>
         </li>
       </ul>
     </nav>

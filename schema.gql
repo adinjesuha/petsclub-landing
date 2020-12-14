@@ -1,0 +1,174 @@
+
+query GetAllProducts {
+  getProductList(where: {
+    specie: {
+      name: {
+        eq: "Dog"
+      }
+    }
+    category: {
+      name: {
+        eq: "Food"
+      }
+    }
+  }) {
+    items {
+      _id
+      _shapeId
+      _contentTypeId
+      name
+      vendor {
+        name
+      }
+    }
+  }
+}
+
+mutation AddProduct {
+  updateCollection(input: {
+    _id: "e73d8f64-93a7-4fc5-a825-8ec4bd82f664"
+    products:[
+      {
+        shapeId: "QROlIGg20", 
+        id: "796cd715-b704-44fc-87ba-128faa3979e7"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "73773418-1942-4fcb-a0aa-98d198124dde"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "fcbd10db-49ef-46c4-bdc7-3ff6d28a6162"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "c4494a42-7edb-41f8-826f-903121a17343"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "c51a270b-5587-4cb0-948e-af2fc13bbe7b"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "f2cbd0c7-b49e-4acf-bf16-bae5beada055"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "a625c167-eed5-4e1b-b2ef-8f68168c0e7e"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "4896dd6f-bf0e-4a45-b114-76add7644fc8"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "53d10a78-8347-4da5-a887-2fe6bfe60389"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "7a09eb0e-d23f-4ee4-a43a-d5437ffa2526"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "0cfabdf7-8d55-4bf4-9149-85e930128a0c"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "cf80c633-d428-4157-9ffc-16e49c4aa759"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "f7696c04-b552-481f-8e77-657a1a4c6eb4"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "bd446b38-8c6d-4118-a541-c593030e7d2c"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "424c3705-76f5-4f5a-aded-b5e1194c1353"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "1931231d-2b61-475d-a2fc-d50e025d7c77"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "d80d3a7a-d618-438c-a53a-cd60ba5fe2fb"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "2343b8d0-03d8-4983-9fed-d757943a1e8b"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "686fa807-ec49-48f2-8731-c3354cb60bc7"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "eaade677-7ca6-4972-a076-a13ade8e1d51"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "485ba90d-5f4c-4562-8845-3ea4b111c2b4"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "aad286c8-f285-4e46-aa99-e22c08030015"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "44637a81-7cca-4eab-bb93-a0083256d923"
+      },
+      {
+        shapeId: "QROlIGg20", 
+        id: "3ef786eb-d395-4631-801b-08c395e14e31"
+      },
+      
+    ]
+  }){
+    result{
+      products{
+        name
+      }
+    }
+  }
+}
+
+mutation AddProductCat {
+  updateCollection(input: {
+    _id: "ed519762-47ce-43cf-a930-02556d67390a"
+    products:[
+      {
+        shapeId: "QROlIGg20"
+        id: "43d54359-6399-46f3-9a1c-83b0a40a604d"
+      },
+      {
+        shapeId: "QROlIGg20"
+        id: "8ea63d60-0bac-4de2-89f2-2cdc8a38c4c4"
+      },
+      {
+        shapeId: "QROlIGg20"
+        id: "2ad3e9a4-0852-46e3-8d93-cc223d826ba8"
+      },
+      {
+        shapeId: "QROlIGg20"
+        id: "8802dfcb-9f7c-4700-a139-759a7cbd64ae"
+      },
+      {
+        shapeId: "QROlIGg20"
+        id: "1a7fc7c5-e59c-4490-be01-d4a28f198097"
+      },
+      {
+        shapeId: "QROlIGg20"
+        id: "bb9ee847-81e3-47bf-915d-7da3b5183259"
+      }    
+    ]
+  }){
+    result{
+      products{
+        name
+      }
+    }
+  }
+}
