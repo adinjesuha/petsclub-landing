@@ -147,6 +147,7 @@ const Header = ({ setShowPopper }) => {
         <Container>
           <FlexContainer spaceBetween>
             <NavButton
+              aria-label="toggle menu"
               onClick={() => setActiveButton(!activeButton)}
               isActive={activeButton}
             >

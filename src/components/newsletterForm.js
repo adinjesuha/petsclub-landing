@@ -12,7 +12,6 @@ const Form = styled.form`
   .form__input{
     display: block;
     background-color: #fff;
-    color: #ddd;
     font-size: 1rem;
     line-height: 2rem;
     letter-spacing: .2px;
@@ -57,6 +56,7 @@ const Form = styled.form`
     font-weight: 700;
   }
   .form__label{
+    font-weight: medium;
     letter-spacing: 1px;
     line-height: 2rem;
     padding: 0.525rem 1.125rem .175rem;

@@ -63,7 +63,7 @@ const ContactChannels = styled.div`
   padding-top: 1rem;
 
   span{
-    font-weight: 500;
+    font-weight: bold;
     color: #f53e5b;
   }
   @media ${device.tablet}{

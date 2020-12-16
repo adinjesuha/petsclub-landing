@@ -23,6 +23,7 @@ module.exports = {
         fonts: [
           `Roboto\:300,400,500,700`
         ],
+        display: 'swap'
       }
     },
     {

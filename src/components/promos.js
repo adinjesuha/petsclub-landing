@@ -37,21 +37,21 @@ const BannerContainer = styled.article`
 const Promos = () => {
   const data = useStaticQuery(graphql`
     query {
-      desktopBanner: file(relativePath: { eq: "big-banner.jpg" }) {
+      desktopBanner: file(relativePath: { eq: "big-banner.webp" }) {
         childImageSharp {
           fluid(maxWidth: 1624, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       },
-      tabletBanner: file(relativePath: { eq: "big-banner-medium.jpg" }) {
+      tabletBanner: file(relativePath: { eq: "big-banner-medium.webp" }) {
         childImageSharp {
           fluid(maxWidth: 800, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       },
-      mobileBanner: file(relativePath: { eq: "big-banner-small.jpg" }) {
+      mobileBanner: file(relativePath: { eq: "big-banner-small.webp" }) {
         childImageSharp {
           fluid(maxWidth: 800, quality: 100) {
             ...GatsbyImageSharpFluid
