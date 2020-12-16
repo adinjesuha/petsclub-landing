@@ -58,7 +58,7 @@ const Promos = () => {
           }
         }
       },
-      fleaBanner: file(relativePath: { eq: "flea-banner.png" }) {
+      fleaBanner: file(relativePath: { eq: "flea-banner.webp" }) {
         childImageSharp {
           fluid(maxWidth: 624, quality: 100) {
             ...GatsbyImageSharpFluid
