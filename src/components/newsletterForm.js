@@ -133,23 +133,57 @@ const Form = styled.form`
 
 
 const NewsLetterForm = () => {
-  const [ email, setEmail ] = useState('')
+  const [status, setStatus] = useState(null);
+  const [email, setEmail] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const FORM_URL = `https://app.convertkit.com/forms/1910142/subscriptions`
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    try {
+      const response = await fetch(
+        FORM_URL,
+        {
+          method: 'post',
+          body: data,
+          headers: {
+            accept: 'application/json',
+          },
+        }
+      );
+      setEmail('');
+      const json = await response.json();
+      if (json.status === 'success') {
+        setStatus('SUCCESS');
+        return;
+      }
+    } catch (err) {
+      setStatus('ERROR');
+      console.log(err);
+    }
+  };
+
+  const handleInputChange = event => {
+    const {value} = event.target;
+    setEmail(value);
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form 
+      action={FORM_URL}
+      method="post"
+      onSubmit={handleSubmit}
+    >
       <div className="form__input--group">
         <label className="form__input">
           <input 
             type="email"
             name="email" 
-            value={email}
             autoComplete="off"
             className={`form__input--el ${email.length ? 'has-value' : ''}`}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleInputChange}
+            value={email}
           />
           <div className="form__input--border"/>
           <div className="form__label">Ingresa tu correo</div>
@@ -158,6 +192,8 @@ const NewsLetterForm = () => {
           <button className="btn btn--submit">Suscribete ya!</button>
         </div>
       </div>
+      {status === 'SUCCESS' && <p>Please go confirm your subscription!</p>}
+      {status === 'ERROR' && <p>Oops, Something went wrong! try again.</p>}
     </Form>
   )
 }
