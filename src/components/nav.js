@@ -64,7 +64,7 @@ const Nav = ({setShowPopper}) => (
           </DropDownItem>
         </li>
         <li className="primary-menu__links--li">
-          <Link to="/">Farmacia</Link>
+          <Link to="/farmacia">Farmacia</Link>
         </li>
         <li className="primary-menu__links--li">
           <Link to="/">Higiene y Belleza</Link>

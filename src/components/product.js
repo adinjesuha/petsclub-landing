@@ -316,7 +316,7 @@ const Product = (props) => {
         </div>
         <div className="content">
           <h2>
-            <strong>{product.vendor.searchSummary}</strong>{" "}
+            <strong>{product.vendor.name}</strong>{" "}
             {product.name}, {variant.name}
           </h2>  
           <div className="product-info">

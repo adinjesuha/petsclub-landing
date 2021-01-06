@@ -18,6 +18,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://petsclubhn.us7.list-manage.com/subscribe/post?u=98c78d79ce4c84b003c0eafff&amp;id=59edfb6298', 
+        timeout: 3500, 
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
