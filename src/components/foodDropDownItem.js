@@ -54,7 +54,7 @@ const FoodDropDownItem = () => (
         <Link to="/alimento-para-gatos">Alimento para Gatos</Link>
       </li>
       <li>
-        <Link to="/">Necesidades Especificas</Link>
+        <Link to="/necesidades-especificas">Necesidades Especificas</Link>
       </li>
       <li>
         <Link to="/treats-y-enlatados">Treats y Enlatados</Link>

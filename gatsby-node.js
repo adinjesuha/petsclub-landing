@@ -3,47 +3,15 @@ const path = require("path")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const dogFoodtList = path.resolve(`./src/templates/dog-food.js`)
-  const catFoodtList = path.resolve(`./src/templates/cat-food.js`)
-  const healthList = path.resolve(`./src/templates/healthCare.js`)
+  const productCollections = path.resolve(`./src/templates/collections.js`)
 
   const { data, errors } = await graphql(`
     {
-      dog: takeshape {
-        getProductList(where: {
-          category: {name: {eq: "Food"}}, 
-          specie: {name: {eq: "Dog"}}}
-        ){
+      takeshape{
+        getCollectionList{
           items{
-            name
-            specie{
-              name
-            }
-          }
-        }
-      }
-      cat: takeshape {
-        getProductList(where: {
-          category: {name: {eq: "Food"}}, 
-          specie: {name: {eq: "Cat"}}}
-        ){
-          items{
-            name
-            specie{
-              name
-            }
-          }
-        }
-      }
-      health: takeshape {
-        getProductList(where: {
-          category: {name: {eq: "Healthcare"}}}
-        ){
-          items{
-            name
-            specie{
-              name
-            }
+            _id
+            slug
           }
         }
       }
@@ -56,55 +24,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  
-  const dogProducts = data.dog.getProductList.items
-  const catProducts = data.cat.getProductList.items
-  const healthProducts = data.cat.getProductList.items
-  
-  const productsPerPage = 20
-  
-  const dogNumPages = Math.ceil(dogProducts.length / productsPerPage)
-  const catNumPages = Math.ceil(catProducts.length / productsPerPage)
-  const healthNumPages = Math.ceil(healthProducts.length / productsPerPage)
-  
 
-  Array.from({ length: dogNumPages }).forEach((_, i) => {
+  data.takeshape.getCollectionList.items.forEach((collection) => {
     createPage({
-      path: i === 0 ? `/alimento-para-perros` : `/alimento-para-perros/${i + 1}`,
-      component: dogFoodtList,
+      path: `/${collection.slug}`,
+      component: productCollections,
       context: {
-        size: productsPerPage,
-        from: i * productsPerPage,
-        dogNumPages,
-        currentPage: i + 1,
+        collectionId: collection._id,
       },
-    })
-  })
-
-  Array.from({ length: catNumPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/alimento-para-gatos` : `/alimento-para-gatos/${i + 1}`,
-      component: catFoodtList,
-      context: {
-        size: productsPerPage,
-        from: i * productsPerPage,
-        catNumPages,
-        currentPage: i + 1,
-      },
-    })
-  })
-
-  Array.from({ length: healthNumPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/pulgas-y-garrapatas` : `/pulgas-y-garrapatas/${i + 1}`,
-      component: healthList,
-      context: {
-        size: productsPerPage,
-        from: i * productsPerPage,
-        catNumPages,
-        currentPage: i + 1,
-      },
-    })
-  })
-
+    });
+  });
 }
+
+ // Array.from({ length: dogNumPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/alimento-para-perros` : `/alimento-para-perros/${i + 1}`,
+  //     component: dogFoodtList,
+  //     context: {
+  //       size: productsPerPage,
+  //       from: i * productsPerPage,
+  //       dogNumPages,
+  //       currentPage: i + 1,
+  //     },
+  //   })
+  // })

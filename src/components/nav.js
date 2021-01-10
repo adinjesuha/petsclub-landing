@@ -58,7 +58,6 @@ const Nav = ({setShowPopper}) => (
           <Link to="/">Promociones</Link>
         </li>
         <li className="primary-menu__links--li">
-          {/* <Link to="/">Alimento</Link> */}
           <DropDownItem title="Alimento" setShowPopper={setShowPopper}>
             <FoodDropDownItem />
           </DropDownItem>

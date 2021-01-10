@@ -2,30 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
 
+import { Container, FlexContainer, Heading, BannerContainer, PageWrapper, Filters, Results } from "../components/globals"
 import SEO from "../components/seo"
 import Layout from '../components/layout'
-import { Container, FlexContainer, Heading, PageWrapper, BannerContainer, Filters, Results } from "../components/globals"
 import Product from "../components/product"
-import Pagination from "../components/pagination"
 
-const ProductsCatPage = (props) => {
-  const { data } = props
-  const { currentPage, catNumPages } = props.pageContext
-  const productSlug = '/alimento-para-gatos/' 
-  const isFirst = currentPage === 1
-  const isLast = currentPage === catNumPages
-  const prevPage = currentPage - 1 === 1 ? productSlug : productSlug + (currentPage - 1).toString()
-  const nextPage = productSlug + (currentPage + 1).toString()
-
-  let paginationProps = {
-    isFirst,
-    prevPage,
-    numPages: catNumPages,
-    productSlug,
-    currentPage,
-    isLast,
-    nextPage
-  }
+const ProductsDogPage = ({data}) => {
 
   const sources = [
     {
@@ -44,10 +26,7 @@ const ProductsCatPage = (props) => {
 
   return (  
     <Layout>
-      <SEO 
-        title={"Alimento para Gatos - Página " + currentPage + " de " + catNumPages}
-        description={"Alimento para Gatos - Página " + currentPage + " de " + catNumPages}
-      />
+      <SEO title={data.title}/>
       <PageWrapper withBg>
         <Container>
           <FlexContainer alignTop>
@@ -82,16 +61,13 @@ const ProductsCatPage = (props) => {
               <div className="results-content">
                 <Heading capitalize medium>{data.takeshape.getCollection.title}</Heading>
                 <BannerContainer>
-                  <Img fluid={sources} alt="Alimento para Gatos Pets Club" />
+                  <Img fluid={sources} alt="Alimento para Perros Pets Club" />
                 </BannerContainer>
                 <FlexContainer alignTop flexWrap isRow>
-                  {data.takeshape.getCollection.products.map(product => (
-                    <Product key={product.id} {...product}/>
-                  ))}
+                {data.takeshape.getCollection.products.map(product => (
+                  <Product key={product.id} {...product}/>
+                ))}
                 </FlexContainer>
-                {catNumPages > 1 ? (
-                  <Pagination {...paginationProps}/>
-                ) : null}
               </div>
             </Results>
           </FlexContainer>
@@ -101,12 +77,12 @@ const ProductsCatPage = (props) => {
   )
 }
 
-export default ProductsCatPage
+export default ProductsDogPage
 
-export const CatProductListQuery = graphql`
-  query catProductListQuery{
+export const query = graphql`
+  query Collection($collectionId: ID!) {
     takeshape {
-      getCollection(_id: "ed519762-47ce-43cf-a930-02556d67390a") {
+      getCollection(_id: $collectionId) {
         _id
         title
         image {
@@ -158,3 +134,24 @@ export const CatProductListQuery = graphql`
     }
   }
 `
+
+// {
+//   takeshape {
+//     getProductList(
+//       where: {
+//         specie: {name: {eq: "Dog"}}, 
+//         category: {name: {eq: "Food"}}
+//       }, 
+//       sort: {
+//         field: "vendor", order: "ASC"
+//       }
+//     ) {
+//       items {
+//         name
+//         vendor {
+//           name
+//         }
+//       }
+//     }
+//   }
+// }
