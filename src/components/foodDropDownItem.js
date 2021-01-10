@@ -57,10 +57,7 @@ const FoodDropDownItem = () => (
         <Link to="/">Necesidades Especificas</Link>
       </li>
       <li>
-        <Link to="/">Enlatados</Link>
-      </li>
-      <li>
-        <Link to="/">Treats</Link>
+        <Link to="/treats-y-enlatados">Treats y Enlatados</Link>
       </li>
     </ul>
   </Content>

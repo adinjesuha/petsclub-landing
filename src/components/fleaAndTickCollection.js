@@ -11,10 +11,10 @@ const FleaAndTickCollection = () => {
   const data = useStaticQuery(graphql`
     query{
       takeshape {
-        getCollection(
-          _id: "059336b1-1d18-4ef4-8aa7-6a1c8645a7e6"
+        getSliderCollection(
+          _id: "f4b5d800-e191-43ac-b096-6073700c1f30"
         ){
-          title
+          collectionName
           products{
             _id
             name
@@ -43,9 +43,9 @@ const FleaAndTickCollection = () => {
 
   return (
     <Container borderBottom paddingBottom>
-      <Heading>Contra las Pulgas y Garrapatas</Heading>
+      <Heading>{data.takeshape.getSliderCollection.collectionName}</Heading>
       <CustomSlider>
-        {data.takeshape.getCollection.products.map(product => (
+        {data.takeshape.getSliderCollection.products.map(product => (
           <SliderCard
             key={product._id}
             product={product}

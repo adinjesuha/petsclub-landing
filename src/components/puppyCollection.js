@@ -15,10 +15,10 @@ const PuppyCollection = () => {
   const data = useStaticQuery(graphql`
     query{
       takeshape {
-        getCollection(
-          _id: "059336b1-1d18-4ef4-8aa7-6a1c8645a7e6"
+        getSliderCollection(
+          _id: "57490367-6e04-42c8-be31-f851b91be00e"
         ){
-          title
+          collectionName
           products{
             _id
             name
@@ -48,9 +48,9 @@ const PuppyCollection = () => {
   return (
     <Container borderBottom paddingBottom marginTop>
       <PuppySection>
-        <Heading>Exclusivo para Cachorros</Heading>
+        <Heading>{data.takeshape.getSliderCollection.collectionName}</Heading>
         <CustomSlider>
-          {data.takeshape.getCollection.products.map(product => (
+          {data.takeshape.getSliderCollection.products.map(product => (
             <SliderCard
               key={product._id}
               product={product}

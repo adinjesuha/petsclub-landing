@@ -20,10 +20,10 @@ const FeaturedCollection = () => {
   const data = useStaticQuery(graphql`
     query{
       takeshape {
-        getCollection(
-          _id: "6483884d-d86f-4a42-aae2-e68da0c800a1"
+        getSliderCollection(
+          _id: "55289b66-21f4-478f-8365-6fabbeda2838"
         ){
-          title
+          collectionName
           products{
             _id
             name
@@ -53,9 +53,9 @@ const FeaturedCollection = () => {
   return (
     <Container marginTop borderBottom>
       <FeaturedSection>
-        <Heading>Los Más Vendidos</Heading>
+        <Heading>{data.takeshape.getSliderCollection.collectionName}</Heading>
         <CustomSlider>
-          {data.takeshape.getCollection.products.map(product => (
+          {data.takeshape.getSliderCollection.products.map(product => (
             <SliderCard
               key={product._id}
               product={product}

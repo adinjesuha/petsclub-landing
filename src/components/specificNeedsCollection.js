@@ -15,10 +15,10 @@ const SpecificNeedsCollection = () => {
   const data = useStaticQuery(graphql`
     query{
       takeshape {
-        getCollection(
-          _id: "5d77bd22-4405-4c2e-af2d-2636766f7f2c"
+        getSliderCollection(
+          _id: "09cff37a-29f5-4445-b2b5-6800f9c6b84f"
         ){
-          title
+          collectionName
           products{
             _id
             name
@@ -48,9 +48,9 @@ const SpecificNeedsCollection = () => {
   return (
     <Container borderBottom paddingBottom marginTop>
       <PuppySection>
-        <Heading>Necesidades Especificas</Heading>
+        <Heading>{data.takeshape.getSliderCollection.collectionName}</Heading>
         <CustomSlider>
-          {data.takeshape.getCollection.products.map(product => (
+          {data.takeshape.getSliderCollection.products.map(product => (
             <SliderCard
               key={product._id}
               product={product}

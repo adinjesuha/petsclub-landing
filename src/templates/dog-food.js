@@ -158,3 +158,24 @@ export const DogProductListQuery = graphql`
     }
   }
 `
+
+// {
+//   takeshape {
+//     getProductList(
+//       where: {
+//         specie: {name: {eq: "Dog"}}, 
+//         category: {name: {eq: "Food"}}
+//       }, 
+//       sort: {
+//         field: "vendor", order: "ASC"
+//       }
+//     ) {
+//       items {
+//         name
+//         vendor {
+//           name
+//         }
+//       }
+//     }
+//   }
+// }
