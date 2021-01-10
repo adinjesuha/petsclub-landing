@@ -96,7 +96,7 @@ const NavMobile = ({showNav}) => {
               <Link to="/treats">Treats</Link>
             </li>
             <li>
-              <Link to="/farmacia">Farmacia</Link>
+              <Link to="/pulgas-y-garrapatas">Pulgas & Garrapatas</Link>
             </li>
             <li>
               <Link to="/salud-y-belleza">Higiene y Belleza</Link>
