@@ -45,8 +45,8 @@ const ProductsCatPage = (props) => {
   return (  
     <Layout>
       <SEO 
-        title={"Alimento para Gatos - Página " + currentPage + " de " + healthCareNumPages}
-        description={"Alimento para Gatos - Página " + currentPage + " de " + healthCareNumPages}
+        title={"Contra Pulgas y Garrapatas - Página " + currentPage + " de " + healthCareNumPages}
+        description={"Contra Pulgas y Garrapatas - Página " + currentPage + " de " + healthCareNumPages}
       />
       <PageWrapper withBg>
         <Container>

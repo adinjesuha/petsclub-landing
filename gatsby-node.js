@@ -96,7 +96,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   Array.from({ length: healthNumPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/farmacia` : `/farmacia/${i + 1}`,
+      path: i === 0 ? `/pulgas-y-garrapatas` : `/pulgas-y-garrapatas/${i + 1}`,
       component: healthList,
       context: {
         size: productsPerPage,
