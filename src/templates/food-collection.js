@@ -11,11 +11,13 @@ import Pagination from "../components/pagination"
 const ProductsDogPage = (props) => {
   const { data } = props
   const { currentPage, dogNumPages } = props.pageContext
-  const productSlug = '/alimento-para-perros/' 
+  const productSlug = '/alimento-para-perros-paginated/' 
   const isFirst = currentPage === 1
   const isLast = currentPage === dogNumPages
   const prevPage = currentPage - 1 === 1 ? productSlug : productSlug + (currentPage - 1).toString()
   const nextPage = productSlug + (currentPage + 1).toString()
+
+  console.log(props)
 
   let paginationProps = {
     isFirst,
@@ -26,21 +28,6 @@ const ProductsDogPage = (props) => {
     isLast,
     nextPage
   }
-
-  const sources = [
-    {
-      ...data.takeshape.getCollection.imageSm.fluid,
-      media: "(max-width: 520px)"
-    },
-    {
-      ...data.takeshape.getCollection.imageMd.fluid,
-      media: "(max-width: 768px)",
-    },
-    {
-      ...data.takeshape.getCollection.image.fluid,
-      media: "(min-width: 769px)",
-    },
-  ]
 
   return (  
     <Layout>
@@ -80,13 +67,13 @@ const ProductsDogPage = (props) => {
             </Filters>
             <Results>
               <div className="results-content">
-                <Heading capitalize medium>{data.takeshape.getCollection.title}</Heading>
-                <BannerContainer>
+                {/* <Heading capitalize medium>{data.takeshape.getCollection.title}</Heading> */}
+                {/* <BannerContainer>
                   <Img fluid={sources} alt="Alimento para Perros Pets Club" />
-                </BannerContainer>
+                </BannerContainer> */}
                 <FlexContainer alignTop flexWrap isRow>
-                {data.takeshape.getCollection.products.map(product => (
-                  <Product key={product.id} {...product}/>
+                {data.takeshape.getProductList.items.map(product => (
+                  <Product key={product._id} {...product}/>
                 ))}
                 </FlexContainer>
                 {dogNumPages > 1 ? (
@@ -104,30 +91,26 @@ const ProductsDogPage = (props) => {
 export default ProductsDogPage
 
 export const DogProductListQuery = graphql`
-  query dogProductListQuery {
+  query dogProductListQuery($from: Int, $size: Int) {
     takeshape {
-      getCollection(_id: "e73d8f64-93a7-4fc5-a825-8ec4bd82f664") {
-        _id
-        title
-        image {
-          path
-          fluid(maxWidth: 1100, quality: 100) {
-            ...GatsbyTakeShapeImageFluid
+      getProductList(
+        where: {
+          category: {
+            name: {
+              eq: "Food"
+            }
+          }
+          specie: {
+            name: {
+              eq: "Dog"
+            }
           }
         }
-        imageMd {
-          path
-          fluid(maxWidth: 700, quality: 100) {
-            ...GatsbyTakeShapeImageFluid
-          }
-        }
-        imageSm {
-          path
-          fluid(maxWidth: 420, quality: 100) {
-            ...GatsbyTakeShapeImageFluid
-          }
-        }
-        products {
+        sort: {field: "lifeStage", order: "ASC"}
+        from: $from
+        size: $size
+      ){
+        items{
           _id
           name
           newProduct
@@ -158,24 +141,3 @@ export const DogProductListQuery = graphql`
     }
   }
 `
-
-// {
-//   takeshape {
-//     getProductList(
-//       where: {
-//         specie: {name: {eq: "Dog"}}, 
-//         category: {name: {eq: "Food"}}
-//       }, 
-//       sort: {
-//         field: "vendor", order: "ASC"
-//       }
-//     ) {
-//       items {
-//         name
-//         vendor {
-//           name
-//         }
-//       }
-//     }
-//   }
-// }
