@@ -346,7 +346,7 @@ const Product = (props) => {
             </p>
             <p className="shipping">
               <strong>ENVÍO GRATIS</strong>
-            {variant.price > 1285 ?  ' en este item' : ' arriba de L.1,285.00'}
+            {product.price > 1285 ?  ' en este item' : ' arriba de L.1,285.00'}
             </p> 
           </div>
         </div> 
