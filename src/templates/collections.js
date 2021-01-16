@@ -59,7 +59,7 @@ const ProductsDogPage = ({data}) => {
             </Filters>
             <Results>
               <div className="results-content">
-                <Heading capitalize medium>{data.takeshape.getCollection.title}</Heading>
+                <Heading>{data.takeshape.getCollection.title}</Heading>
                 <BannerContainer>
                   <Img fluid={sources} alt="Alimento para Perros Pets Club" />
                 </BannerContainer>
