@@ -106,8 +106,13 @@ export const Heading = styled.h2`
 
 // Templates Styles
 export const PageWrapper = styled.div`
-  padding-top: 3rem;
   background-color: ${props => props.withBg ? "#fcfcfc" : "transparent"};
+  @media ${device.tablet}{
+    padding-top: 1rem;
+  }
+  @media ${device.laptop}{
+    padding-top: 3rem;
+  }
 `
 
 export const BannerContainer = styled.div`
@@ -171,7 +176,6 @@ export const Filters = styled.aside`
 export const Results = styled.div`
   width: 100%;
   .results-content{
-    margin: 0;
-    margin-top: 2rem;
+    margin: 2rem 0;
   }
 `

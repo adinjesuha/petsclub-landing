@@ -26,7 +26,7 @@ query GetAllProducts {
 
 mutation AddProduct {
   updateCollection(input: {
-    _id: "e73d8f64-93a7-4fc5-a825-8ec4bd82f664"
+    _id: "d008d1b5-665f-46ea-816c-dda12f0d20d1"
     products:[
       {
         shapeId: "QROlIGg20", 

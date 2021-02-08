@@ -3,8 +3,7 @@ const path = require("path")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const productCollections = path.resolve(`./src/templates/collections.js`)
-  const dogFoodTemplate = path.resolve('./src/templates/food-collection.js')
+  const collectionpage = path.resolve(`./src/templates/collections.js`)
 
   const { data, errors } = await graphql(`
     {
@@ -41,41 +40,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
   `);
-
-
   // Handle errors
   if (errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
-
   data.takeshape.getCollectionList.items.forEach((collection) => {
     createPage({
-      path: `/${collection.slug}`,
-      component: productCollections,
+      path:  `/${collection.slug}`,
+      component: collectionpage,
       context: {
-        collectionId: collection._id,
+        id: collection._id
       },
     });
   });
-
 }
-
-
-// const dogFoodProducts = data.products.getProductList.items
-// const productsPerPage = 20
-// const dogNumPages = Math.ceil(dogFoodProducts.length / productsPerPage)
-
-// Array.from({ length: dogNumPages}).forEach((_, i) => {
-//   createPage({
-//     path: i === 0 ? '/alimento-para-perros' : `/alimento-para-perros/${i + 1}`,
-//     component: dogFoodTemplate,
-//     context: {
-//       size: productsPerPage,
-//       from: i * productsPerPage,
-//       dogNumPages,
-//       currentPage: i + 1,
-//     }
-//   })
-// })

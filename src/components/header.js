@@ -157,12 +157,9 @@ const Header = ({ setShowPopper }) => {
               Pet's Club
               <Logo white/>
             </LogoContainer>
-            <Nav setShowPopper={setShowPopper}/>
             <NavMobile showNav={activeButton}/>
             <PlaceHolerDiv/>
-            <DropDownItem title="Contáctanos" setShowPopper={setShowPopper}>
-              <HelpDropDownItem />
-            </DropDownItem>
+            <Nav setShowPopper={setShowPopper}/>
           </FlexContainer>
         </Container>
       </HeaderTop>

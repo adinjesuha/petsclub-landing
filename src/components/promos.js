@@ -16,6 +16,9 @@ const PromosHeader = styled.div`
 const BannerContainer = styled.article`
   width: 100%;
   height: auto;
+  &:first-child{
+    margin-bottom: .5rem;
+  }
   ${props => props.column && css`
     display: inline-block;
     margin-bottom: 1rem;

@@ -28,7 +28,7 @@ const NewsLetterContainer = styled.div`
 
 const HeadLine = styled.div`
   text-align: center;
-  max-width: 430px;
+  max-width: 530px;
   margin: auto;
   margin-bottom: 3rem;
   color: #fff;
@@ -40,7 +40,7 @@ const HeadLine = styled.div`
   h3{
     font-size: 1.1rem;
     font-weight: 400;
-    text-transform: uppercase;
+    line-height: 1.4;
     margin: 0;
   }
   @media ${device.tablet}{
@@ -54,11 +54,10 @@ const NewsLetter = () => (
   <NewsLetterSection>
     <NewsLetterContainer>
       <HeadLine>
-        <h2>abriremos muy pronto</h2>
-        <h3>20% de descuento en nuestra gran apertura</h3>
+        <h2>Suscribete a nuestro newsletter</h2>
+        <h3>Recibe promociones especiales y notificaciones de nuevos productos.</h3>
       </HeadLine>
       <NewsLetterForm />
-      <p className="news-instructions">Una vez que te has suscrito, recibirá un email con un <strong>promocode</strong> para tu primera compra en <strong>PETS CLUB</strong>.</p>
     </NewsLetterContainer>
   </NewsLetterSection>
 )

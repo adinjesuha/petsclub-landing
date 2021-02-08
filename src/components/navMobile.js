@@ -90,13 +90,7 @@ const NavMobile = ({showNav}) => {
               <Link to="/necesidades-especificas">Necesidades Especificas</Link>
             </li>
             <li>
-              <Link to="/treats-y-enlatados">Treats y Enlatados</Link>
-            </li>
-            <li>
               <Link to="/pulgas-y-garrapatas">Pulgas y Garrapatas</Link>
-            </li>
-            <li>
-              <Link to="/salud-y-belleza">Higiene y Belleza</Link>
             </li>
           </ul>
         </div>

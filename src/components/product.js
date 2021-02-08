@@ -22,7 +22,7 @@ export const ProductCardWrapper = styled.article`
     width: calc(33.33% - 16px);
   }
   @media ${device.laptop}{
-    width: calc(25% - 16px);
+    width: calc(20% - 16px);
   }
   @media ${device.desktop}{
     width: calc(20% - 16px);
@@ -118,15 +118,6 @@ export const ProductCardWrapper = styled.article`
             font-size: .7em;
           }
         }
-        .shipping{
-          font-size: .7em;
-          font-weight: 400;
-          text-align: left;
-          padding: 8px 0;
-
-          line-height: 1.11em;
-          border-top: 1px solid #ddd;
-        }
       }
     }
     @media ${device.mobileL}{
@@ -134,7 +125,7 @@ export const ProductCardWrapper = styled.article`
       padding: 15px;
       border-radius: 5px;
       flex-direction: column;
-      padding-bottom: 116px;
+      padding-bottom: 100px;
       .item-image{
         padding: 0;
         margin: 0;
@@ -197,9 +188,6 @@ export const ProductCardWrapper = styled.article`
           }
           .price .price-old{
             font-size: .778em;
-          }
-          .shipping{
-            border: none;
           }
         }
       }
@@ -344,10 +332,6 @@ const Product = (props) => {
                 <span><strong>L. {variant.price}.00</strong></span>
               )}
             </p>
-            <p className="shipping">
-              <strong>ENVÍO GRATIS</strong>
-            {product.price > 1285 ?  ' en este item' : ' arriba de L.1,285.00'}
-            </p> 
           </div>
         </div> 
       </div>

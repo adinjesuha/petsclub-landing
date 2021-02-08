@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { device } from '../utils/breakpoints'
 import DropDownItem from './dropDownItem'
 import FoodDropDownItem from './foodDropDownItem'
+import HelpDropDownItem from './helpDropDownItem'
 
 const MainMenu = styled.div`
   display: none;
@@ -54,9 +55,6 @@ const Nav = ({setShowPopper}) => (
   <MainMenu>
     <nav className="primary-menu">
       <ul className="primary-menu__links">
-        <li className="primary-menu__links--li li--active">
-          <Link to="/">Promociones</Link>
-        </li>
         <li className="primary-menu__links--li">
           <DropDownItem title="Alimento" setShowPopper={setShowPopper}>
             <FoodDropDownItem />
@@ -66,7 +64,9 @@ const Nav = ({setShowPopper}) => (
           <Link to="/pulgas-y-garrapatas">Pulgas y Garrapatas</Link>
         </li>
         <li className="primary-menu__links--li">
-          <Link to="/">Higiene y Belleza</Link>
+          <DropDownItem title="Contáctanos" setShowPopper={setShowPopper}>
+            <HelpDropDownItem />
+          </DropDownItem>
         </li>
       </ul>
     </nav>
