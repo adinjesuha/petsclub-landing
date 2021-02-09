@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import Product from "../components/product"
 import NewsLetter from '../components/newsletter'
 
-const ProductsDogPage = ({data}) => {
+const CollectionPage = ({data}) => {
 
   const sources = [
     {
@@ -50,7 +50,7 @@ const ProductsDogPage = ({data}) => {
   )
 }
 
-export default ProductsDogPage
+export default CollectionPage
 
 export const query = graphql`
   query Collection($id: ID!) {
