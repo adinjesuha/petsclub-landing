@@ -5,6 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components'
 
 import "./layout.css"
+import "./fonts.css"
 import Header from "./header"
 import Footer from "./footer"
 

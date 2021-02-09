@@ -6,10 +6,8 @@ import styled, { keyframes, css } from 'styled-components'
 import { Container, FlexContainer } from './globals'
 import { device } from '../utils/breakpoints'
 import Logo from './logo'
-import DropDownItem from "./dropDownItem";
 import Nav from './nav'
 import NavMobile from './navMobile'
-import HelpDropDownItem from './helpDropDownItem'
 
 const headerSlideDown = keyframes`
   0%  { transform: translateY(-100%) }
