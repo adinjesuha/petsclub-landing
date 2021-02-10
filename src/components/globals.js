@@ -176,6 +176,7 @@ export const Filters = styled.aside`
 export const Results = styled.div`
   width: 100%;
   .results-content{
-    margin: 2rem 0;
+    margin-top: 2rem ;
+    padding-bottom: 2rem;
   }
 `

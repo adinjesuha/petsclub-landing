@@ -6,10 +6,10 @@ import { Container, FlexContainer } from './globals'
 import Logo from './logo'
 
 const FooterContainer = styled.footer`
-  padding: 2rem 0;
+  padding: 1rem 0;
   background-color: #222649;
   @media ${device.tablet}{
-    padding: 3rem 0;
+    padding: 1.5rem 0;
   }
 `
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
@@ -68,6 +68,13 @@ const Promos = () => {
           }
         }
       },
+      catBanner: file(relativePath: { eq: "cat-food.webp" }) {
+        childImageSharp {
+          fluid(maxWidth: 624, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      },
     }
   `)
 
@@ -90,13 +97,19 @@ const Promos = () => {
     <Container borderBottom>
       <PromosHeader>
         <BannerContainer>
-          <Img fluid={sources}/>
+          <Link to="/alimento-para-perros">
+            <Img fluid={sources}/>
+          </Link>
         </BannerContainer>
         <BannerContainer column>
-          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+          <Link to="/pulgas-y-garrapatas">
+            <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+          </Link>
         </BannerContainer>
         <BannerContainer column>
-          <Img fluid={data.fleaBanner.childImageSharp.fluid}/>
+          <Link to="/alimento-para-gatos">
+            <Img fluid={data.catBanner.childImageSharp.fluid}/>
+          </Link>
         </BannerContainer>
       </PromosHeader>
     </Container>
