@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import styled, { keyframes, css } from 'styled-components'
 
+
 import { Container, FlexContainer } from './globals'
 import { device } from '../utils/breakpoints'
 import Logo from './logo'
